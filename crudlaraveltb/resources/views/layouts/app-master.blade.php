@@ -7,9 +7,13 @@
     <meta name="author" content="Paulo Vieira">
     <meta name="generator" content="ifpr 1.0">
     <title>Super WEB APP</title>
+    
+    <link rel="stylesheet" href="/css/styles.css">
 
     <link href="{!! url('assets/bootstrap/css/bootstrap.min.css') !!}" rel="stylesheet">
     
+    
+
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
