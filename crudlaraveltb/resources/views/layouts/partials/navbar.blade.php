@@ -28,7 +28,7 @@
 	<nav class="navbar navbar-expand-lg fixed-top">
 		<div class="container-fluid">
 			<!--Logo IFPR -->
-		  <a class="navbar-brand me-auto" href="#"> <img src="layouts\images\Nasa_blue_marble.jpg" alt="logo ifpr"></a>
+		  <a class="navbar-brand me-auto" href="#"> <img src="/img/ifpr.png" class="img-fuild" alt="logo ifpr"></a>
 		  
 		  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
 			<div class="offcanvas-header">
