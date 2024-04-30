@@ -8,11 +8,13 @@
     <meta name="generator" content="ifpr 1.0">
     <title>Super WEB APP</title>
     
-    <link rel="stylesheet" href="/css/styles.css">
+    
 
     <link href="{!! url('assets/bootstrap/css/bootstrap.min.css') !!}" rel="stylesheet">
     
-    
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}" > 
+
+    <script src="https://kit.fontawesome.com/89a77a6e3e.js" crossorigin="anonymous"></script>
 
     <style>
       .bd-placeholder-img {
@@ -35,9 +37,11 @@
     <link href="signin.css" rel="stylesheet">
 </head>
 <body class="text-center align-items-center">
+
     
     @auth
     	@include('layouts.partials.navbarlogged')
+      @include('layouts.partials.materias')
     @endauth
     
     @guest
@@ -45,7 +49,7 @@
 	@endguest
     <main class="form-signin">
 
-        @yield('content')
+      <!-- -->
         
     </main>
     

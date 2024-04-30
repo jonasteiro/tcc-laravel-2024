@@ -1,64 +1,113 @@
-@extends('layouts.app-master') @section('content')
+@extends('layouts.app-master')
+ 
+@section('content')
 
 <div class="bg-light p-4 rounded">
-	<h1>Disciplinas</h1>
-	<div class="lead">Dados da disciplina</div>
-
-	<div class="mt-2">@include('layouts.partials.messages')</div>
+    <h1>Professores</h1>
+    <div class="lead">
+        Dados do professor
+    </div>
+    
+    <div class="mt-2">
+        @include('layouts.partials.messages')
+    </div>
 
 	<div class="container mt-4">
-		<form method="POST" action="">
-			@csrf
-			<div class="mb-3">
-				<label for="nome" class="form-label">Nome</label> <input
-					value="{{ old('nome') }}" type="text" class="form-control"
-					name="nome" placeholder="Nome" required> @if ($errors->has('nome'))
-				<span class="text-danger text-left">{{ $errors->first('nome') }}</span>
-				@endif
-			</div>
+        <form method="POST" action=>
+            @csrf
+            
+            <div class="mb-3">
+                <label for="nome" class="form-label">Nome</label>
+                <input value="{{ old('nome') }}" 
+                    type="text" 
+                    class="form-control" 
+                    name="nome" 
+                    placeholder="Nome" required>
 
-			<div class="mb-3">
-				<label for="curso" class="form-label">Curso</label> <input
-					value="{{ old('curso') }}" type="text" class="form-control"
-					name="curso" placeholder="Curso" required>
-					@if ($errors->has('curso')) <span class="text-danger text-left">{{
-					$errors->first('curso') }}</span> @endif
-			</div>
+                @if ($errors->has('nome'))
+                    <span class="text-danger text-left">{{ $errors->first('nome') }}</span>
+                @endif
+                
+            </div>
+            
+            <div class="mb-3">
+                <label for="cpf" class="form-label">CPF</label>
+                <input value="{{ old('cpf') }}"
+                    type="text" 
+                    class="form-control" 
+                    name="cpf" 
+                    placeholder="Cadastro de Pessoa Física" required>
+                @if ($errors->has('cpf'))
+                    <span class="text-danger text-left">{{ $errors->first('cpf') }}</span>
+                @endif
+            </div>
+            
+            <div class="mb-3">
+                <label for="data_nascimento" class="form-label">Data de nascimento</label>
+                <input value="{{ old('data_nascimento') }}"
+                    type="date" 
+                    class="form-control" 
+                    name="data_nascimento" 
+                    placeholder="Data de nascimento" required>
+                @if ($errors->has('data_nascimento'))
+                    <span class="text-danger text-left">{{ $errors->first('data_nascimento') }}</span>
+                @endif
+            </div>
+            
+            <div class="mb-3">
+                <label for="email" class="form-label">E-mail</label>
+                <input value="{{ old('email') }}"
+                    type="text" 
+                    class="form-control" 
+                    name="email" 
+                    placeholder="Email" required>
+                @if ($errors->has('email'))
+                    <span class="text-danger text-left">{{ $errors->first('email') }}</span>
+                @endif
+            </div>
+            
+            <div class="mb-3">
+                <label for="nome_campus" class="form-label">Nome do Campus</label>
+                <input value="{{ old('nome_campus') }}" 
+                    type="text" 
+                    class="form-control" 
+                    name="nome_campus" 
+                    placeholder="Nome do Campus" required>
 
-			<div class="mb-3">
-				<label for="sigla" class="form-label">Sigla</label> <input
-					value="{{ old('sigla') }}" type="text" class="form-control"
-					name="sigla" placeholder="Sigla" required>
-					@if ($errors->has('sigla')) <span class="text-danger text-left">{{
-					$errors->first('sigla') }}</span> @endif
-			</div>
+                @if ($errors->has('nome_campus'))
+                    <span class="text-danger text-left">{{ $errors->first('nome_campus') }}</span>
+                @endif
+            </div>
+            
+            <div class="mb-3">
+                <label for="departamento" class="form-label">Departamento</label>
+                <input value="{{ old('departamento') }}"
+                    type="text" 
+                    class="form-control" 
+                    name="departamento" 
+                    placeholder="Departamento" required>
+                @if ($errors->has('departamento'))
+                    <span class="text-danger text-left">{{ $errors->first('departamento') }}</span>
+                @endif
+            </div>
+            
+            <div class="mb-3">
+                <label for="area_atuacao" class="form-label">Área de atuação</label>
+                <input value="{{ old('area_atuacao') }}"
+                    type="text" 
+                    class="form-control" 
+                    name="area_atuacao" 
+                    placeholder="Área de atuação" required>
+                @if ($errors->has('area_atuacao'))
+                    <span class="text-danger text-left">{{ $errors->first('area_atuacao') }}</span>
+                @endif
+            </div>			
 
-			<div class="mb-3">
-				<label for="carga_horaria" class="form-label">Carga horária</label>
-				<input value="{{ old('carga_horaria') }}" type="number"
-					class="form-control" name="carga_horaria"
-					placeholder="Carga horária" required>
-					@if ($errors->has('carga_horaria')) <span class="text-danger text-left">{{
-					$errors->first('carga_horaria') }}</span> @endif
-			</div>
-
-			<div class="mb-3">
-				<label for="nome_professor" class="form-label">Nome do professor</label>
-				<br><select name="profs" id="profs"></br>
-				@foreach($professores as $professor)
-					<option value="{{ $professor->id }}">{{ $professor->nome}}</option>
-				@endforeach
-				</select>
-				
-			</div>
-
-			
-
-			<button type="submit" class="btn btn-success">Salvar</button>
-			<a href="{{ route('disciplinas.index') }}" class="btn btn-danger">Cancelar</a>
-		</form>
-	</div>
-
+            <button type="submit" class="btn btn-success">Salvar</button>
+            <a href="{{ route('professores.index') }}" class="btn btn-danger">Cancelar</a>
+        </form>
+    </div>
+	
 
 </div>
 

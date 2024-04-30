@@ -5,7 +5,7 @@
 	<form method="post" action="{{ route('register.perform') }}">
  
     	<input type="hidden" name="_token" value="{{ csrf_token() }}" />
-    	<img class="mb-4" src="{!! url('assets/images/ifpr_vertical.svg') !!}" alt="" width="202" height="187">
+    	<img class="mb-4" src="{!! url('assets/img/ifpr_vertical.svg') !!}" alt="" width="202" height="187">
        
     	<h1 class="h3 mb-3 fw-normal">Cadastro de usuário</h1>
  
@@ -46,6 +46,7 @@
         	<br/><br/>
         	<a href="{{ route('home.index') }}" class="btn btn-lg btn-secondary w-25 mx-auto">Página Inicial</a>
           	</div>
+			  <p> Já possui uma conta? Entrar <a href="{{ route('login.perform') }}"> aqui</a></p>
        
     	@include('auth.partials.copy')
 	</form>
