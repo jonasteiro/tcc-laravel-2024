@@ -2,19 +2,19 @@
 
 @section('content')
     <div class="bg-light p-4 rounded">
-        <h1>Alterar disciplina</h1>
+        <h1>Alterar professor</h1>
         <div class="lead">
             
         </div>
         
         <div class="container mt-4">
-            <form method="post" action="{{ route('disciplinas.update', $disciplina->id) }}">
+            <form method="post" action="{{ route('professores.update', $professor->id) }}">
                 @method('patch')
                 @csrf
                 
-            <div class="mb-3">
+                <div class="mb-3">
                 <label for="nome" class="form-label">Nome</label>
-                <input value="{{ $disciplina->nome }}" 
+                <input value="{{ $professor->nome }}" 
                     type="text" 
                     class="form-control" 
                     name="nome" 
@@ -23,48 +23,86 @@
                 @if ($errors->has('nome'))
                     <span class="text-danger text-left">{{ $errors->first('nome') }}</span>
                 @endif
+                
             </div>
             
             <div class="mb-3">
-                <label for="curso" class="form-label">Curso</label>
-                <input value="{{ $disciplina->curso }}"
+                <label for="cpf" class="form-label">CPF</label>
+                <input value="{{ $professor->cpf }}"
                     type="text" 
                     class="form-control" 
-                    name="curso" 
-                    placeholder="Curso" required>
-                @if ($errors->has('curso'))
-                    <span class="text-danger text-left">{{ $errors->first('curso') }}</span>
+                    name="cpf" 
+                    placeholder="Cadastro de Pessoa Física" required>
+                @if ($errors->has('cpf'))
+                    <span class="text-danger text-left">{{ $errors->first('cpf') }}</span>
                 @endif
             </div>
             
             <div class="mb-3">
-                <label for="sigla" class="form-label">Sigla</label>
-                <input value="{{ $disciplina->sigla }}"
+                <label for="data_nascimento" class="form-label">Data de nascimento</label>
+                <input value="{{ $professor->data_nascimento }}"
+                    type="date" 
+                    class="form-control" 
+                    name="data_nascimento" 
+                    placeholder="Data_Nascimento" required>
+                @if ($errors->has('data_nascimento'))
+                    <span class="text-danger text-left">{{ $errors->first('data_nascimento') }}</span>
+                @endif
+            </div>
+            
+            <div class="mb-3">
+                <label for="email" class="form-label">E-mail</label>
+                <input value="{{ $professor->email }}"
                     type="text" 
                     class="form-control" 
-                    name="sigla" 
-                    placeholder="Sigla" required>
-                @if ($errors->has('sigla'))
-                    <span class="text-danger text-left">{{ $errors->first('sigla') }}</span>
+                    name="email" 
+                    placeholder="Email" required>
+                @if ($errors->has('email'))
+                    <span class="text-danger text-left">{{ $errors->first('email') }}</span>
                 @endif
             </div>
             
             <div class="mb-3">
-                <label for="carga_horaria" class="form-label">Carga horária</label>
-                <input value="{{ $disciplina->carga_horaria }}"
-                    type="number" 
+                <label for="nome_campus" class="form-label">Nome do Campus</label>
+                <input value="{{ $professor->lotacao->nome_campus }}" 
+                    type="text" 
                     class="form-control" 
-                    name="carga_horaria" 
-                    placeholder="Carga horária" required>
-                @if ($errors->has('carga_horaria'))
-                    <span class="text-danger text-left">{{ $errors->first('carga_horaria') }}</span>
+                    name="nome_campus" 
+                    placeholder="Nome do Campus" required>
+
+                @if ($errors->has('nome_campus'))
+                    <span class="text-danger text-left">{{ $errors->first('nome_campus') }}</span>
                 @endif
-            </div>      
+            </div>
+            
+            <div class="mb-3">
+                <label for="departamento" class="form-label">Departamento</label>
+                <input value="{{ $professor->lotacao->departamento }}"
+                    type="text" 
+                    class="form-control" 
+                    name="departamento" 
+                    placeholder="Departamento" required>
+                @if ($errors->has('departamento'))
+                    <span class="text-danger text-left">{{ $errors->first('departamento') }}</span>
+                @endif
+            </div>
+            
+            <div class="mb-3">
+                <label for="area_atuacao" class="form-label">Área de atuação</label>
+                <input value="{{ $professor->lotacao->area_atuacao }}"
+                    type="text" 
+                    class="form-control" 
+                    name="area_atuacao" 
+                    placeholder="Area_Atuacao" required>
+                @if ($errors->has('area_atuacao'))
+                    <span class="text-danger text-left">{{ $errors->first('area_atuacao') }}</span>
+                @endif
+            </div>
                 
                 
 
                 <button type="submit" class="btn btn-success">Salvar</button>
-                <a href="{{ route('disciplinas.index') }}" class="btn btn-danger">Cancelar</a>
+                <a href="{{ route('professores.index') }}" class="btn btn-danger">Cancelar</a>
             </form>
         </div>
 
