@@ -32,13 +32,13 @@
 -->
 <!-- Nova Navbar-->
 
-<div class="border border-dark border-1 border-bottom-0">
+<div class="border border-dark border-2 border-bottom-0">
 	<!--Off Canvas -->
 	<nav class="navbar navbar-expand-lg ">
 		<div class="container-fluid">
 			<!--Logo IFPR -->
 			<div class="">
-				<a class="navbar-brand me-auto " href="#"> <img src="/assets/img/funcionaNmrl.png" class="img-fluid m-3 top-0 start-0" alt="logo ifpr"></a>
+				<a class="navbar-brand me-auto " href="#"> <img src="/assets/img/funcionaNmrl.png" class="img-fluid m-3 me-5 top-0 start-0" alt="logo ifpr"></a>
 			</div>
 		  
 		  
@@ -51,9 +51,6 @@
 			  <ul class="navbar-nav align-items-center justify-content-center flex-grow-1 pe-3">
 				<li class="nav-item">
 				  <a class="nav-link mx-lg-2 fs-5 " aria-current="page" href="#">Home</a>
-				</li>
-				<li class="nav-item">
-				  <a class="nav-link mx-lg-2 fs-5" href="{{ route('usuarios.index') }}">Usuários</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link mx-lg-2 fs-5" href="{{ route('produtos.index') }}">Ocorrências</a>
@@ -71,15 +68,15 @@
       			@endauth
 			  </ul>
 			  @auth
-    			<div class="fs-5 m-2"> {{auth()->user()->email}}</div>
+    			<div class="fs-5 m-3"> {{auth()->user()->email}}</div>
     			<div>
-      			<a href="{{ route('logout.perform') }}" class="btn btn-outline-dark fs-5 m-1">Logout</a>
+      			<a href="{{ route('logout.perform') }}" class="btn btn-outline-dark fs-5 m-2 logout">Logout</a>
     			</div>
   				@endauth
 			
 			  <div>
 
-				<i class="fa-regular fa-circle-user fs-1 mx-3"></i>
+				<i class="fa-regular fa-circle-user fs-1 mx-3 mt-2"></i>
 			  </div>
 			</div>
 		  </div>
@@ -94,7 +91,7 @@
 </div>
 
 <!--Pesquisar-->
-<div id="" class=" align-items-center border border-dark border-1 mb-0 p-1">
+<div id="" class=" align-items-center border border-dark border-2 mb-0 p-1">
 	<form class="rounded-4 " role="search">
 	  <input id="" class="m-1 p-1 w-100 border border-dark rounded-4 text-center" type="search" class="form-control" placeholder="Pesquisar..." aria-label="Search">
 	</form>
