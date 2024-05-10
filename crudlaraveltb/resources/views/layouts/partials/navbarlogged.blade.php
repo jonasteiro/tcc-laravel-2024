@@ -34,7 +34,7 @@
 
 <div class="border border-dark border-2 border-bottom-0">
 	<!--Off Canvas -->
-	<nav class="navbar navbar-expand-lg ">
+	<nav class="navbar navbar-expand-lg nav-underline  ">
 		<div class="container-fluid">
 			<!--Logo IFPR -->
 			<div class="">
@@ -53,7 +53,7 @@
 				  <a class="nav-link mx-lg-2 fs-5 " aria-current="page" href="#">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link mx-lg-2 fs-5" href="{{ route('produtos.index') }}">Ocorrências</a>
+					<a class="nav-link mx-lg-2 fs-5" href="{{ route('ocorrencias.index') }}">Ocorrências</a>
 				  </li>
 				  <li class="nav-item">
 					<a class="nav-link mx-lg-2 fs-5" href="{{ route('professores.index') }}">Enfermaria</a>
