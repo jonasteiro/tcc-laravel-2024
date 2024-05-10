@@ -111,16 +111,35 @@
 }
 
 .fa-circle-user{
-    color: #96D67B;
+    color: #309f41;
 }
 
 .fa-circle-user:hover{
     color: #c4e9b4;
 }
 .logout:hover{
-    background-color:  #d3f0c6;
+    background-color:  #b3b3b3;
     color: black;
 }
 .entrar{
     width: 110px;
 }
+.navbar-toggler{
+    border: none;
+}
+
+.navbar-toggler:focus, .btn-close:focus{
+    box-shadow: none;
+    outline: none;
+}
+
+.nav-link{
+    color: #666777;
+
+}
+
+.nav-link:hover, .nav-link-active{
+    color: black;
+}
+
+

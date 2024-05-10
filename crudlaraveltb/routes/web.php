@@ -76,7 +76,10 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             Route::delete('/disciplinasProfessores/{disciplinasProfessores}/delete', 'DisciplinasProfessoresController@destroy')->name('disciplinasProfessores.destroy');
             Route::get("/disciplinasProfessores/pdf", "DisciplinaProfessorPDFController@gerarPDF")->name("disciplinasProfessores.pdf");
             
-            
+            Route::get("/ocorrencias",
+                "OcorrenciasController@index")->name("ocorrencias.index");
+
+
             
             Route::resource("/solicitacoes",
                 SolicitacoesController::class);
