@@ -8,7 +8,7 @@
     <meta name="generator" content="ifpr 1.0">
     <title>Super WEB APP</title>
     
-    @vite(['resources/css/app.css', 'resources/scss/main.scss', 'resources/js/app.js'])
+
     
 
     <link href="{!! url('assets/bootstrap/css/bootstrap.min.css') !!}" rel="stylesheet">
