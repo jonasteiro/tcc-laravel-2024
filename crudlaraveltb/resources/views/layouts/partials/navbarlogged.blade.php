@@ -56,10 +56,10 @@
 					<a class="nav-link mx-lg-2 fs-5" href="{{ route('ocorrencias.index') }}">Ocorrências</a>
 				  </li>
 				  <li class="nav-item">
-					<a class="nav-link mx-lg-2 fs-5" href="{{ route('professores.index') }}">Enfermaria</a>
+					<a class="nav-link mx-lg-2 fs-5" href="{{ route('enfermaria.index') }}">Enfermaria</a>
 				  </li>
 				  <li class="nav-item">
-					<a class="nav-link mx-lg-2 fs-5" href="{{ route('disciplinas.index') }}">Mensagens</a>
+					<a class="nav-link mx-lg-2 fs-5" href="{{ route('mensagens.index') }}">Mensagens</a>
 				  </li>
 				@auth
         			@if ( auth()->user()->role == 'ROLE_USER' )
