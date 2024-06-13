@@ -3,7 +3,7 @@
   
     
     <!--Cursos-->
-    <div class=" justify-content-center fs-1 fw-bold text-decoration-underline mb-lg-5 ">Cursos</div>
+    <div class=" text-center fs-1 fw-bold text-decoration-underline mb-lg-5 ">Cursos</div>
 
         <div class="container text-center">
             <!--Display grid dos botões -->

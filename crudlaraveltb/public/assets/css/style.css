@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     overflow: scroll;
+    height: 100%;
    }
 
 .login-button{
@@ -36,7 +37,7 @@
 #registrar-button:hover{
     background-color: #96D67B;
 }
-
+/* Página Inicial */
 #btn1{
     width: 100%;
     height: 150px;
@@ -142,4 +143,28 @@
     color: black;
 }
 
+/* Página Inicial */
 
+/* Página de Ocorrências */
+
+
+#emitir{
+    width: 25%;
+    height: 50px;
+}
+
+#pesquisar{
+    width: 50%;
+    height: 50px;
+    padding-top: 10px;
+}
+
+#relatorio{
+    width: 25%;
+    height: 50px;
+}
+
+#botoes{
+    height: 100%;
+    width: 100%;
+}
