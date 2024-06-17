@@ -50,7 +50,7 @@
 			<div class="offcanvas-body">
 			  <ul class="navbar-nav align-items-center justify-content-center flex-grow-1 pe-3">
 				<li class="nav-item">
-				  <a class="nav-link mx-lg-2 fs-5 " aria-current="page" href="#">Home</a>
+				  <a class="nav-link mx-lg-2 fs-5 " aria-current="page" href="crudlaraveltb\resources\views\layouts\app-master.blade.php	">Home</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link mx-lg-2 fs-5" href="{{ route('ocorrencias.index') }}">Ocorrências</a>

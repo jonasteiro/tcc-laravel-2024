@@ -156,7 +156,7 @@
 #pesquisar{
     width: 50%;
     height: 50px;
-    padding-top: 10px;
+
 }
 
 #relatorio{
@@ -167,4 +167,9 @@
 #botoes{
     height: 100%;
     width: 100%;
+}
+
+#btns{
+    width: 20%;
+    height: 40px;
 }
