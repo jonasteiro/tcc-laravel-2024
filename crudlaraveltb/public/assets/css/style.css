@@ -1,8 +1,8 @@
 #body {
     margin: 0;
     padding: 0;
-    overflow: scroll;
     height: 100%;
+    background-color: rgb(174, 190, 173);
    }
 
 .login-button{
@@ -151,17 +151,19 @@
 #emitir{
     width: 25%;
     height: 50px;
+    transition: 0.3s;
 }
 
-#pesquisar{
+#filtrar{
     width: 50%;
     height: 50px;
-
+    transition: 0.3s;
 }
 
-#relatorio{
+#add{
     width: 25%;
     height: 50px;
+    transition: 0.3s;
 }
 
 #botoes{
@@ -172,4 +174,63 @@
 #btns{
     width: 20%;
     height: 40px;
+}
+span {
+    margin-left: 2em;
+}
+#ocorrencia{
+    background-color: #ffc2c2;
+}
+
+  @media screen and (max-width:640px){
+    #emitir, #relatorio{
+        font-size: 0.9rem !important;
+    }
+  }
+
+.info-box{
+    border: 3px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    transition: height 0.3s;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffc2c2;
+}
+.info-box .description {
+    display: none;
+}
+
+.info-box.expanded .description {
+    display: block;
+}
+
+@media (max-width: 640px) {
+    .info-box {
+        font-size: 0.9rem !important;
+        display: block;
+    }
+}
+@media(max-width: 640px){
+    .description{
+        margin-top: 20px;
+    }
+}
+#emitir:hover{
+    transition: 0.3s;
+    width: 26%;
+    height: 51px;
+    background-color: #cecece;
+}
+#add:hover{
+    transition: 0.3s;
+    width: 26%;
+    height: 51px;
+    background-color: #cecece;
+}
+#filtrar:hover{
+    transition: 0.3s;
+    width: 51%;
+    height: 51px;
+    background-color: #cecece;
 }

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Enfermaria;
+use App\Models\Mensagens;
 use Illuminate\Http\Request;
 
 class MensagensController extends Controller
@@ -14,8 +14,8 @@ class MensagensController extends Controller
     public function index()
     {
         // select * from tb_produtos order by id desc limit 10
-     $enfermaria = Enfermaria::orderBy("id", "desc")->paginate(10);
-     return view("enfermaria.index", compact("enfermaria"));
+     $mensagens = Mensagens::orderBy("id", "desc")->paginate(10);
+     return view("mensagens.index", compact("mensagens"));
     }
 
     /**

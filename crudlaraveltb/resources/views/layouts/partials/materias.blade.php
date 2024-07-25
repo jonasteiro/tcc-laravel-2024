@@ -1,3 +1,4 @@
+<body id="body">
 <!-- HTML contendo os botões das materias -->
 <div class="d-grid justify-content-center align-items-center border border-dark border-2 border-top-0  " >
   
@@ -48,3 +49,4 @@
         </div>
   </div>
 
+</body>
