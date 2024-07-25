@@ -1,20 +1,21 @@
+<body id="body">
 <!-- HTML contendo os botões das materias -->
 <div class="d-grid justify-content-center align-items-center border border-dark border-2 border-top-0  " >
   
     
     <!--Cursos-->
-    <div class=" justify-content-center fs-1 fw-bold text-decoration-underline mb-lg-5 ">Cursos</div>
+    <div class=" text-center fs-1 fw-bold text-decoration-underline mb-lg-5 ">Cursos</div>
 
         <div class="container text-center">
             <!--Display grid dos botões -->
             <div class="row row-cols-1 row-cols-lg-4 g-2 g-lg-3">
                 <!--Botão Informática-->
               <div class="col">
-                <div><button id="btn1" class="p-3 btn btn-outline-dark btn-lg bg-Info border-3 "> <i id="ic" class="fa-solid fa-laptop"></i> Informática</button></div>
+                <div><button id="btn1" class="p-3 btn btn-outline-dark btn-lg bg-Info border-3 "> <a class="text-decoration-none text-dark" href="{{ route('info.index') }}"> <i id="ic" class="fa-solid fa-laptop"></i> Informática </a></button></div>
               </div>
               <!--Botão Petróleo e Gás-->
               <div class="col">
-                <div ><button id="btn1" class="p-3 btn btn-outline-dark btn-lg bg-PetEGas border-3"> <i id="ic" class="fa-solid fa-oil-well"></i> Petróleo e Gás</button></div>
+                <div ><button  id="btn1" class="p-3 btn btn-outline-dark btn-lg bg-PetEGas border-3"> <a class="text-decoration-none text-dark" href="{{ route('mensagens.index') }}"> <i id="ic" class="fa-solid fa-oil-well"></i> Petróleo e Gás </a></button></div>
               </div>
               <!--Botão Administração-->
               <div class="col">
@@ -48,3 +49,4 @@
         </div>
   </div>
 
+</body>

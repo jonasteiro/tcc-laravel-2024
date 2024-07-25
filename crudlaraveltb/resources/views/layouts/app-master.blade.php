@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}" > 
 
     <script src="https://kit.fontawesome.com/89a77a6e3e.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/ad3460fbc5.js" crossorigin="anonymous"></script>
 
     <style>
       .bd-placeholder-img {

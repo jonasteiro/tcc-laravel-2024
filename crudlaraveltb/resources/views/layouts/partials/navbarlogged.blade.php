@@ -30,6 +30,7 @@
   </div>
 </header>
 -->
+
 <!-- Nova Navbar-->
 
 <div class="border border-dark border-2 border-bottom-0">
@@ -48,24 +49,15 @@
 			  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 			</div>
 			<div class="offcanvas-body">
-			  <ul class="navbar-nav align-items-center justify-content-center flex-grow-1 pe-3">
+			  <ul class="navbar-nav align-items-center justify-content-center flex-grow-1 pe-3 mx-3">
 				<li class="nav-item">
-				  <a class="nav-link mx-lg-2 fs-5 " aria-current="page" href="#">Home</a>
+				  <a class="nav-link mx-4 fs-5 " aria-current="page" href="">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link mx-lg-2 fs-5" href="{{ route('ocorrencias.index') }}">Ocorrências</a>
+					<a class="nav-link mx-4 fs-5" href="{{ route('ocorrencias.index') }}">Ocorrências</a>
 				  </li>
 				  <li class="nav-item">
-					<a class="nav-link mx-lg-2 fs-5" href="{{ route('enfermaria.index') }}">Enfermaria</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link mx-lg-2 fs-5" href="{{ route('mensagens.index') }}">Mensagens</a>
-				  </li>
-				@auth
-        			@if ( auth()->user()->role == 'ROLE_USER' )
-        			<li><a href="{{ route('solicitacoes.index') }}" class="nav-link m-2 fs-5">Solicitações</a></li>
-        			@endif
-      			@endauth
+					<a class="nav-link mx-4 fs-5" href="{{ route('enfermaria.index') }}">Enfermaria</a> 
 			  </ul>
 			  @auth
     			<div class="fs-5 m-3"> {{auth()->user()->email}}</div>
@@ -93,6 +85,6 @@
 <!--Pesquisar-->
 <div id="" class=" align-items-center border border-dark border-2 mb-0 p-1">
 	<form class="rounded-4 " role="search">
-	  <input id="" class="m-1 p-1 w-100 border border-dark rounded-4 text-center" type="search" class="form-control" placeholder="Pesquisar..." aria-label="Search">
+	  <input id="" class="my-1 p-1  w-100 border border-dark rounded-4 text-center" type="search" class="form-control" placeholder="Pesquisar..." aria-label="Search">
 	</form>
 </div>

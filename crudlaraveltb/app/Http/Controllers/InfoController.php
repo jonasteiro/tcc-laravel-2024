@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Mensagens;
+use App\Models\Info;
 use Illuminate\Http\Request;
 
-class MensagensController extends Controller
+
+class InfoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,8 @@ class MensagensController extends Controller
     public function index()
     {
         // select * from tb_produtos order by id desc limit 10
-     $mensagens = Mensagens::orderBy("id", "desc")->paginate(10);
-     return view("mensagens.index", compact("mensagens"));
+     $info = Info::orderBy("id", "desc")->paginate(10);
+     return view("info.index", compact("info"));
     }
 
     /**

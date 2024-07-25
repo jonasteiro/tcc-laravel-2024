@@ -8,34 +8,19 @@
     <link href="{!! url('assets/bootstrap/css/bootstrap.min.css') !!}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}" > 
     <title>Ocorrências</title>
+    <script src="https://kit.fontawesome.com/89a77a6e3e.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
         @include('layouts.partials.navbarlogged')
-        <!-- Texto escrito Ocorrências -->
-        <div class="border border-dark border-2 text-center border-top-0 border-bottom-0 fs-2 fw-bold">Enfermaria</div>
-        
-        <!-- Botões abaixo do texto de ocorrências -->
-        <div class="d-flex align-items-center justify-content-center border border-dark border-2 p-2 text-center">
 
-            <Button id="emitir" class="border border-dark border-1 border rounded-2 m-1 fw-bold">  Emitir <br> Relatório </Button>
+        <div class="d-flex align-items-center justify-content-center border border-dark border-2 p-2 border-top-0 ">
+            <div class="">Imagem Laptop</div>
 
-            <Button  id="pesquisar" class="border border-dark border-1 border rounded-2 m-1 fw-bold">  Filtrar</Button>
-
-            <Button id="relatorio" class="border border-dark border-1 border rounded-2 m-1 fw-bold">Adicionar <br> Relatório </Button>
+            <button id="btns" class="border border-dark border-1 border rounded-2 m-1 fw-bold bg-white "><a class="text-decoration-none text-dark" href="">Relatórios</a></button id="btns">
+            <button id="btns" class="border border-dark border-1 border rounded-2 m-1 fw-bold bg-white "><a class="text-decoration-none text-dark" href="">Relatórios</a></button id="btns">
+            <button id="btns" class="border border-dark border-1 border rounded-2 m-1 fw-bold bg-white "><a class="text-decoration-none text-dark" href="">Relatórios</a></button id="btns">
         </div>
-
-        <div class="border border-dark border-2 border-top-0">
-
-            <div class="ms-1">Ordenar</div>
-
-            
-            <Button class="border border-dark border-1 border rounded-2 m-1 p-1 ps-3 ">Titulo Enfermaria</Button>
-
-
-        </div>
-
-
 
         
 
@@ -43,7 +28,7 @@
 
 
 
-
+mm
 
 
 
