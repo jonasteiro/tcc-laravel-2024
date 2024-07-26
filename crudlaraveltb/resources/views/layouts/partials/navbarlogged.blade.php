@@ -51,7 +51,7 @@
 			<div class="offcanvas-body">
 			  <ul class="navbar-nav align-items-center justify-content-center flex-grow-1 pe-3 mx-3">
 				<li class="nav-item">
-				  <a class="nav-link mx-4 fs-5 " aria-current="page" href="">Home</a>
+				  <a class="nav-link mx-4 fs-5 " aria-current="page" href="{{ route('usuarios.index') }}">Home</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link mx-4 fs-5" href="{{ route('ocorrencias.index') }}">Ocorrências</a>
@@ -68,7 +68,7 @@
 			
 			  <div>
 
-				<i class="fa-regular fa-circle-user fs-1 mx-3 mt-2"></i>
+				 <a href="{{route ('perfil.index')}}"> <i class="perfil fa-regular fa-circle-user fs-1 mx-3 mt-2"> </i></a>
 			  </div>
 			</div>
 		  </div>

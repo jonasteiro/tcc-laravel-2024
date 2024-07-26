@@ -110,17 +110,23 @@
 .bg-Jogos:hover{
     background-color: #cccccc;
 }
-
-.fa-circle-user{
+/*Usuário */
+.perfil{
+    transition: 0.3s;
     color: #309f41;
 }
 
-.fa-circle-user:hover{
+.perfil:hover{
+    transition: 0.3s;
     color: #c4e9b4;
+}
+.logout{
+    transition: 0.3s;
 }
 .logout:hover{
     background-color:  #b3b3b3;
     color: black;
+    transition: 0.3s;
 }
 .entrar{
     width: 110px;
@@ -178,12 +184,10 @@
 span {
     margin-left: 2em;
 }
-#ocorrencia{
-    background-color: #ffc2c2;
-}
+
 
   @media screen and (max-width:640px){
-    #emitir, #relatorio{
+    #emitir, #add{
         font-size: 0.9rem !important;
     }
   }
@@ -233,4 +237,50 @@ span {
     width: 51%;
     height: 51px;
     background-color: #cecece;
+}
+.test{
+    margin-top: 0.6rem;
+}
+.enfa{
+    background-color: #96D8BD !important;
+}
+.user{
+    padding: 25px;
+    font-size: 50px;
+}
+.userBox{
+    width: 30%;
+    background-color: #D8FFD1;
+}
+.infoPes{
+    width: 100%;
+    background-color: #D8FFD1;
+}
+.infoPes .content {
+    display: none;
+}
+@media(max-width: 640px){
+    .boxPerf{
+        margin: 5px !important;
+    }
+}
+.botaoPerf{
+    background-color: #D8FFD1;
+    transition: 0.3s;
+    width: 32%;
+}
+.botaoPerf:hover{
+    background-color: #c9fcc0;
+    transition: 0.3s;
+    width: 32.5%;
+}
+@media(max-width:640px){
+    .botaoPerf{
+        font-size: 10px;
+        width: 27%;
+        height: 50px;
+    }
+}
+.boxGPerf{
+    background-color: #A5DD9B;
 }

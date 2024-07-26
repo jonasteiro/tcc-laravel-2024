@@ -36,7 +36,7 @@
 
         <div class="ms-1 fs-2">Ordenar <i class="fa-solid fa-chevron-down"></i></div>
 
-        <button id="ocorrencia" class=" border border-dark border-1 border rounded-2 my-2 w-100 fs-3 text-wrap fw-bold "> <span>Titulo Ocorrência</span> <span>Pessoas Envolvidas</span> <span>Data</span> <span>Status</span> <span><i class="fa-regular fa-circle"></i></span> </button> 
+        
 
     </div>
 
@@ -116,7 +116,7 @@
         <span><strong>Data:</strong> ${date}</span>
         <span><strong>Status:</strong> ${status}</span>
         <span class="description">${description}</span>
-        <button class="btn expand-btn"><i class="fa-solid fa-maximize "></i></button>
+        <button class="btn expand-btn"><i class=" test fa-solid fa-maximize ms-3 "></i></button>
     
     `;
 

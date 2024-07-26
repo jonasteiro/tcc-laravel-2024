@@ -89,6 +89,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             //Rotas de Info
             Route::get("/info","InfoController@index")->name("info.index");
 
+            //Rotas Perfil
+            Route::get("/perfil","PerfilController@index")->name("perfil.index");
+
             
             Route::resource("/solicitacoes",
                 SolicitacoesController::class);
