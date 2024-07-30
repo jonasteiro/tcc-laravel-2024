@@ -85,6 +85,6 @@
 <!--Pesquisar-->
 <div id="" class=" align-items-center border border-dark border-2 mb-0 p-1">
 	<form class="rounded-4 " role="search">
-	  <input id="" class="my-1 p-1  w-100 border border-dark rounded-4 text-center" type="search" class="form-control" placeholder="Pesquisar..." aria-label="Search">
+	  <input id="pesquisa" class="my-1 p-1  w-100 border border-dark rounded-4 text-center" type="search" class="form-control" placeholder="Pesquisar..." aria-label="Search">
 	</form>
 </div>

@@ -11,7 +11,7 @@
     <script src="https://kit.fontawesome.com/ad3460fbc5.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body id="body">
     @include('layouts.partials.navbarlogged')
 
     <div class="border border-dark border-2 m-5 rounded boxGPerf">

@@ -86,12 +86,58 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             //Rotas das Mensagens
             Route::get("/mensagens","MensagensController@index")->name("mensagens.index");
 
-            //Rotas de Info
-            Route::get("/info","InfoController@index")->name("info.index");
-
             //Rotas Perfil
             Route::get("/perfil","PerfilController@index")->name("perfil.index");
 
+            // Rota Petroleo é Gás
+            Route::get('/petroleoG', function () {
+                return view('layouts.partials.petroleoG');
+            })->name('petroleoG');
+            
+            //Rota Info
+            Route::get('/info', function () {
+                return view('layouts.partials.info');
+            })->name('info');
+
+            //Rota Info1
+            Route::get('/info1', function () {
+                return view('layouts.partials.info1');
+            })->name('info1');
+
+            //Rota Info2
+            Route::get('/info2', function () {
+                return view('layouts.partials.info2');
+            })->name('info2');
+
+            //Rota Info3
+            Route::get('/info3', function () {
+                return view('layouts.partials.info3');
+            })->name('info3');
+
+            //Rota Info4
+            Route::get('/info4', function () {
+                return view('layouts.partials.info4');
+            })->name('info4');
+
+            //Rota Pg1
+            Route::get('/info1', function () {
+                return view('layouts.partials.info1');
+            })->name('info1');
+
+            //Rota pg2
+            Route::get('/info2', function () {
+                return view('layouts.partials.info2');
+            })->name('info2');
+
+            //Rota Pg3
+            Route::get('/info3', function () {
+                return view('layouts.partials.info3');
+            })->name('info3');
+
+            //Rota Pg4
+            Route::get('/info4', function () {
+                return view('layouts.partials.info4');
+            })->name('info4');
             
             Route::resource("/solicitacoes",
                 SolicitacoesController::class);
