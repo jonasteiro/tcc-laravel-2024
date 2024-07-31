@@ -51,13 +51,13 @@
 			<div class="offcanvas-body">
 			  <ul class="navbar-nav align-items-center justify-content-center flex-grow-1 pe-3 mx-3">
 				<li class="nav-item">
-				  <a class="nav-link mx-4 fs-5 " aria-current="page" href="{{ route('usuarios.index') }}">Home</a>
+				  <a class="nav-link mx-4 fs-5 text-black " aria-current="page" href="{{ route('usuarios.index') }}">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link mx-4 fs-5" href="{{ route('ocorrencias.index') }}">Ocorrências</a>
+					<a class="nav-link mx-4 fs-5 text-black" href="{{ route('ocorrencias.index') }}">Ocorrências</a>
 				  </li>
 				  <li class="nav-item">
-					<a class="nav-link mx-4 fs-5" href="{{ route('enfermaria.index') }}">Enfermaria</a> 
+					<a class="nav-link mx-4 fs-5 text-black" href="{{ route('enfermaria.index') }}">Enfermaria</a> 
 			  </ul>
 			  @auth
     			<div class="fs-5 m-3"> {{auth()->user()->email}}</div>
