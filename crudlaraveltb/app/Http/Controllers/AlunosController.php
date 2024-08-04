@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
-use App\Models\Ocorrencias;
 
 
+use App\Models\Alunos;
 
-class OcorrenciasController extends Controller
+class AlunosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,14 +17,8 @@ class OcorrenciasController extends Controller
     public function index()
     {
      // select * from tb_produtos order by id desc limit 10
-    $ocorrencias = Ocorrencias::all();
-    return view('ocorrencias.index', compact('ocorrencias'));
-    }
-    //Função Filtro
-    public function filtro($turma)
-    {
-    $ocorrencias = Ocorrencias::where('turma', $turma)->get();
-    return view('ocorrencias.partials.list', compact('ocorrencias'));
+     $alunos = Alunos::all();
+     return view('alunos.index', compact('alunos'));
     }
 
     /**

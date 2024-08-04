@@ -2,9 +2,11 @@
     margin: 0;
     padding: 0;
     height: 100%;
-    background-color: rgb(174, 190, 173);
+    background-color: #d3d3d3
    }
-
+#pesquisa{
+    background-color: #A6A6A6;
+}
 .login-button{
 
     background-color: #309f41; 
@@ -110,17 +112,23 @@
 .bg-Jogos:hover{
     background-color: #cccccc;
 }
-
-.fa-circle-user{
+/*Usuário */
+.perfil{
+    transition: 0.3s;
     color: #309f41;
 }
 
-.fa-circle-user:hover{
+.perfil:hover{
+    transition: 0.3s;
     color: #c4e9b4;
+}
+.logout{
+    transition: 0.3s;
 }
 .logout:hover{
     background-color:  #b3b3b3;
     color: black;
+    transition: 0.3s;
 }
 .entrar{
     width: 110px;
@@ -178,12 +186,10 @@
 span {
     margin-left: 2em;
 }
-#ocorrencia{
-    background-color: #ffc2c2;
-}
+
 
   @media screen and (max-width:640px){
-    #emitir, #relatorio{
+    #emitir, #add{
         font-size: 0.9rem !important;
     }
   }
@@ -195,7 +201,6 @@ span {
     transition: height 0.3s;
     justify-content: center;
     align-items: center;
-    background-color: #ffc2c2;
 }
 .info-box .description {
     display: none;
@@ -233,4 +238,120 @@ span {
     width: 51%;
     height: 51px;
     background-color: #cecece;
+}
+.test{
+    margin-top: 0.6rem;
+}
+.enfa{
+    background-color: #96D8BD !important;
+}
+/*Alunos.index */
+.user{
+    padding: 25px;
+    font-size: 50px;
+}
+.userBox{
+    width: 30%;
+    background-color: #e7e7e7;
+}
+.infoPes{
+    width: 100%;
+    background-color: #ffffff;
+}
+.infoPes .content {
+    display: none;
+}
+@media(max-width: 640px){
+    .boxPerf{
+        margin: 5px !important;
+    }
+}
+.botaoPerf{
+    background-color: #ffffff;
+    transition: 0.3s;
+    width: 32%;
+}
+.botaoPerf:hover{
+    background-color: #d8ffd1;
+    transition: 0.3s;
+    width: 32.5%;
+}
+@media(max-width:640px){
+    .botaoPerf{
+        font-size: 10px;
+        width: 27%;
+        height: 50px;
+    }
+}
+.boxGPerf{
+    background-color: #A5DD9B;
+}
+/*Info.blade.php */
+.box01{
+    width: 30%;
+    height: 85px;
+}
+/*Info.blade.php */
+.box02{
+    width: 70%;
+    height: 85px;
+}
+#btn02{
+    width: 30%;
+    transition: 0.3s;
+}
+#btn02:hover{
+    width: 31%;
+    transition: 0.3s;
+}
+/*Em celularem diminui a margem e tamanho da fonte dos botões Info.blade.php */
+@media (max-width:640px) {
+    #btn02{
+        font-size: 0.8rem !important;
+        margin: 0px !important;
+        padding: 0px !important;
+        height: 50px !important;
+        width: 32% !important;
+    }
+}
+/*Em celulares diminui o tamanho do texto Informática*/
+@media (max-width:640px){
+    #ic{
+        font-size: 20px !important;
+    }
+}
+/*Turmas Info.blade.php*/
+#btn03{
+    width: 50%;
+    transition: 0.3s;
+}
+#btn03:hover{
+    width: 51%;
+    transition: 0.3s;
+}
+.aluno-card{
+    width: 200px;
+    height: 300px;
+    transition: 0.3s;
+}
+.aluno-card:hover{
+    width: 205px;
+    height: 305px;
+    transition: 0.3s;
+}
+/*Alunos.index */
+#AddALunos{
+    height: 50px;
+    margin-top: 70px;
+    transition: 0.3s;
+    width: 150px;
+}
+#AddAlunos:hover{
+    height: 55px;
+    width: 155px;
+    transition: 0.3s;
+}
+/*btnAlunos*/
+.excesso{
+    font-size: small;
 }

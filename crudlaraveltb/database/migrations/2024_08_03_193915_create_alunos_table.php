@@ -13,13 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ocorrencias', function (Blueprint $table) {
+        Schema::create('alunos', function (Blueprint $table) {
             $table->id();
-            $table->string("Titulo");
-            $table->dateTime("Data");
-            $table->boolean("Status");
-            $table->string('turma');
-            $table->text('descricao');    
+            $table->string("nome");
+            $table->string("cpf");
+            $table->string("nome_pais");
+            $table->string("telefone");
+            $table->string("telefone_pais");
+            $table->string("email");
+            $table->string("email_pais");
             $table->timestamps();
         });
     }
@@ -31,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ocorrencias');
+        Schema::dropIfExists('alunos');
     }
 };

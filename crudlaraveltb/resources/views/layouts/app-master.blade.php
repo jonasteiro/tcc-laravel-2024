@@ -6,7 +6,8 @@
     <meta name="description" content="">
     <meta name="author" content="Paulo Vieira">
     <meta name="generator" content="ifpr 1.0">
-    <title>Super WEB APP</title>
+    <link rel="icon" href="{{asset('assets/img/ifpr_vertical')}}">
+    <title>SGA</title>
     
 
     

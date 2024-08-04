@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Perfil;
+
 use Illuminate\Http\Request;
-use App\Models\Ocorrencias;
 
-
-
-class OcorrenciasController extends Controller
+class PerfilController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,14 +15,8 @@ class OcorrenciasController extends Controller
     public function index()
     {
      // select * from tb_produtos order by id desc limit 10
-    $ocorrencias = Ocorrencias::all();
-    return view('ocorrencias.index', compact('ocorrencias'));
-    }
-    //Função Filtro
-    public function filtro($turma)
-    {
-    $ocorrencias = Ocorrencias::where('turma', $turma)->get();
-    return view('ocorrencias.partials.list', compact('ocorrencias'));
+     $perfil = Perfil::orderBy("id", "desc")->paginate(10);
+     return view("perfil.index", compact("perfil"));
     }
 
     /**

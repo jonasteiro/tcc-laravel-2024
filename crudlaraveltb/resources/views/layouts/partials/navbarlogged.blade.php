@@ -1,36 +1,3 @@
-<!--
-<header class="p-3 bg-dark text-white">
-  <div class="container">
-	<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-  	<a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-    	<svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
-  	</a>
- 
-  	<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-    	<li><a href="/" class="nav-link px-2 text-secondary">HOME</a></li>
-    	<li><a href="" class="nav-link px-2 text-white">Usuários</a></li>
-    	<li><a href="" class="nav-link px-2 text-white">Produtos</a></li>
-    	<li><a href="" class="nav-link px-2 text-white">Professores</a></li>
-    	<li><a href="" class="nav-link px-2 text-white">Disciplinas</a></li>
-
-    	@auth
-        	@if ( auth()->user()->role == 'ROLE_USER' )
-        	<li><a href="{{ route('solicitacoes.index') }}" class="nav-link px-2 text-white">Solicitações</a></li>
-        	@endif
-      	@endauth
-  	</ul>
- 
-  	@auth
-    	{{auth()->user()->email}}
-    	<div class="text-end">
-      	<a href="{{ route('logout.perform') }}" class="btn btn-outline-light me-2">Logout</a>
-    	</div>
-  	@endauth
-	</div>
-  </div>
-</header>
--->
-
 <!-- Nova Navbar-->
 
 <div class="border border-dark border-2 border-bottom-0">
@@ -39,7 +6,7 @@
 		<div class="container-fluid">
 			<!--Logo IFPR -->
 			<div class="">
-				<a class="navbar-brand me-auto " href="#"> <img src="/assets/img/funcionaNmrl.png" class="img-fluid m-3 me-5 top-0 start-0" alt="logo ifpr"></a>
+				<a class="navbar-brand me-auto " href="{{ route('usuarios.index') }}"> <img src="/assets/img/funcionaNmrl.png" class="img-fluid m-3 me-5 top-0 start-0" alt="logo ifpr"></a>
 			</div>
 		  
 		  
@@ -51,13 +18,16 @@
 			<div class="offcanvas-body">
 			  <ul class="navbar-nav align-items-center justify-content-center flex-grow-1 pe-3 mx-3">
 				<li class="nav-item">
-				  <a class="nav-link mx-4 fs-5 " aria-current="page" href="">Home</a>
+				  <a class="nav-link mx-4 fs-5 text-black " aria-current="page" href="{{ route('usuarios.index') }}">Home</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link mx-4 fs-5" href="{{ route('ocorrencias.index') }}">Ocorrências</a>
+					<a class="nav-link mx-4 fs-5 text-black" href="{{ route('ocorrencias.index') }}">Ocorrências</a>
 				  </li>
 				  <li class="nav-item">
-					<a class="nav-link mx-4 fs-5" href="{{ route('enfermaria.index') }}">Enfermaria</a> 
+					<a class="nav-link mx-4 fs-5 text-black" href="{{ route('enfermaria.index') }}">Enfermaria</a> 
+					<li class="nav-item">
+						<a class="nav-link mx-4 fs-5 text-black" href="{{ route('alunos.index') }}">Alunos</a> 
+					</li>
 			  </ul>
 			  @auth
     			<div class="fs-5 m-3"> {{auth()->user()->email}}</div>
@@ -68,7 +38,7 @@
 			
 			  <div>
 
-				<i class="fa-regular fa-circle-user fs-1 mx-3 mt-2"></i>
+				 <a href="{{route ('perfil.index')}}"> <i class="perfil fa-regular fa-circle-user fs-1 mx-3 mt-2"> </i></a>
 			  </div>
 			</div>
 		  </div>
@@ -85,6 +55,6 @@
 <!--Pesquisar-->
 <div id="" class=" align-items-center border border-dark border-2 mb-0 p-1">
 	<form class="rounded-4 " role="search">
-	  <input id="" class="my-1 p-1  w-100 border border-dark rounded-4 text-center" type="search" class="form-control" placeholder="Pesquisar..." aria-label="Search">
+	  <input id="pesquisa" class="my-1 p-1  w-100 border border-dark rounded-4 text-center" type="search" class="form-control" placeholder="Pesquisar..." aria-label="Search">
 	</form>
 </div>
