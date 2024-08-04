@@ -1,11 +1,8 @@
 <body id="body">
 <!-- HTML contendo os botões das materias -->
 <div class="d-grid justify-content-center align-items-center border border-dark border-2 border-top-0  " >
-  
-    
     <!--Cursos-->
     <div class=" text-center fs-1 fw-bold text-decoration-underline mb-lg-5 ">Cursos</div>
-
         <div class="container text-center">
             <!--Display grid dos botões -->
             <div class="row row-cols-1 row-cols-lg-4 g-2 g-lg-3">
@@ -45,8 +42,6 @@
                 </div>
               </div>
             </div>
-        
         </div>
   </div>
-
 </body>

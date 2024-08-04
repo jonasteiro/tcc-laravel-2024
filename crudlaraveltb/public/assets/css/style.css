@@ -201,7 +201,6 @@ span {
     transition: height 0.3s;
     justify-content: center;
     align-items: center;
-    background-color: #ffc2c2;
 }
 .info-box .description {
     display: none;
@@ -246,17 +245,18 @@ span {
 .enfa{
     background-color: #96D8BD !important;
 }
+/*Alunos.index */
 .user{
     padding: 25px;
     font-size: 50px;
 }
 .userBox{
     width: 30%;
-    background-color: #D8FFD1;
+    background-color: #e7e7e7;
 }
 .infoPes{
     width: 100%;
-    background-color: #D8FFD1;
+    background-color: #ffffff;
 }
 .infoPes .content {
     display: none;
@@ -267,12 +267,12 @@ span {
     }
 }
 .botaoPerf{
-    background-color: #D8FFD1;
+    background-color: #ffffff;
     transition: 0.3s;
     width: 32%;
 }
 .botaoPerf:hover{
-    background-color: #c9fcc0;
+    background-color: #d8ffd1;
     transition: 0.3s;
     width: 32.5%;
 }
@@ -330,10 +330,28 @@ span {
     transition: 0.3s;
 }
 .aluno-card{
-    width: 100px;
+    width: 200px;
+    height: 300px;
     transition: 0.3s;
 }
 .aluno-card:hover{
-    width: 105px;
+    width: 205px;
+    height: 305px;
     transition: 0.3s;
+}
+/*Alunos.index */
+#AddALunos{
+    height: 50px;
+    margin-top: 70px;
+    transition: 0.3s;
+    width: 150px;
+}
+#AddAlunos:hover{
+    height: 55px;
+    width: 155px;
+    transition: 0.3s;
+}
+/*btnAlunos*/
+.excesso{
+    font-size: small;
 }

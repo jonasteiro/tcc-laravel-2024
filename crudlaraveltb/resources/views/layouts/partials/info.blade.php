@@ -24,7 +24,7 @@
     <div class=" border border-dark border-3 border-top-0 align-items-center justify-content-center text-center p-2">
 
         <!-- Turmas -->
-        <span class="fs-1 ">Turmas</span>
+        <span class="fs-1">Turmas</span>
         <div class="d-flex mt-2">
 
             <button id="btn03" class="p-3 border-1 rounded m-1">

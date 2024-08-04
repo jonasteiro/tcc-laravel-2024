@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SolicitacoesController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\OcorrenciasController;
+use App\Http\Controllers\InfoController;
+
 
 Route::get('send-mail', [MailController::class, 'index']);
 
@@ -78,7 +81,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             
             //Rotas das Ocorrências
             Route::get("/ocorrencias","OcorrenciasController@index")->name("ocorrencias.index");
-
+            //Filtro Ocorrências
+            Route::get('/filtro/{turma}', [OcorrenciasController::class, 'filtro'])->name('ocorrencias.filtro');
 
             //Rotas da Enfermaria
             Route::get("/enfermaria","EnfermariaController@index")->name("enfermaria.index");
@@ -98,6 +102,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             Route::get('/info', function () {
                 return view('layouts.partials.info');
             })->name('info');
+            //rota info turmas
+            Route::get('/turma/{id}', [InfoController::class, 'show']);
 
             //Rota Info1
             Route::get('/info1', function () {
@@ -138,10 +144,16 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             Route::get('/info4', function () {
                 return view('layouts.partials.info4');
             })->name('info4');
-            
+            //Solicitações
             Route::resource("/solicitacoes",
                 SolicitacoesController::class);
-                        
+            //Dependências 
+            Route::get('/dependencias', function () {
+                return view('layouts.partials.dependencias');
+            })->name('dependencias');
+            //Rotas das Alunos
+            Route::get("/alunos","AlunosController@index")->name("alunos.index");
+
             /**
              * Logout Routes
              */

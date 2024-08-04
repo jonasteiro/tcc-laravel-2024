@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Informática</title>
-    @include('layouts.partials.essentials')
-</head>
+@include('layouts.partials.essentials')
 <body id="body">
     @include('layouts.partials.navbarlogged')
 
@@ -21,7 +13,7 @@
     </div>
 
 
-    <div class="alunos-container align-items-center justify-content-center text-center d-flex mt-5">
+    <div class="alunos-container align-items-center justify-content-center text-center d-flex mt-2">
           <button class="aluno-card rounded m-1 p-2 text-center border border-dark border-2">
             <div class="aluno-icon">
                 👤
@@ -89,5 +81,3 @@
 
 
 </body>
-
-</html>

@@ -23,7 +23,7 @@
             @include('layouts.partials.btnEmitirRelat')
             <button id="emitir" class=" border border-dark border-1 border rounded-2 m-1 fs-2 fw-bold" data-bs-toggle="modal" data-bs-target="#relatorio">  Emitir Relatórios <i class="fa-regular fa-clipboard ms-1"></i> </button>
 
-            <button id="filtrar" class="border border-dark border-1 border rounded-2 m-1 fs-2 fw-bold"> <i class="fa-solid fa-list me-1"></i> Filtrar</button>
+            <button id="filtrar" class="border border-dark border-1 border rounded-2 m-1 fs-2 fw-bold" data-bs-toggle="modal" data-bs-target="#filterModal"> <i class="fa-solid fa-list me-1"></i> Filtrar</button>
 
             <button id="add" class=" border border-dark border-1 border rounded-2 m-1 fs-2 text-wrap fw-bold" data-bs-toggle="modal" data-bs-target="#infoModal"> Adicionar Atestados <i class="fa-solid fa-plus ms-1"></i></button>
 
@@ -31,31 +31,15 @@
 
 
         <div class="border border-dark border-2 border-top-0">
-
-            <div class="ms-1 fs-2"> <button href="" data-bs-toggle="dropdown" aria-expanded="false">Ordenar </button><i class="fa-solid fa-chevron-down"></i>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Separated link</a></li>
-                </ul>
-            </div>
+            <!-- Link que abre o dropdown -->
+        <a class="ms-1 fs-2 text-dark text-decoration-none" href="#" id="ordenarLink">Ordenar ▼</a>
+        </div>
 
             
 
         </div>
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown button
-            </button>
-            <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-        </div>
-        <div id="infoContainer">
+
+        <div id="infoContainer" >
             <!-- Retângulos de informações serão inseridos aqui -->
 
         </div>
@@ -67,5 +51,6 @@
 
 
     </body>
-
+    @include('layouts.partials.btnFiltro')
+    @include('layouts.partials.btnOrdenar')
     </html>
