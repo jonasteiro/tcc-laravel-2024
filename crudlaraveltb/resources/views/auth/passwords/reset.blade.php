@@ -1,4 +1,4 @@
-@extends('layouts.auth-master')
+
 
 @section('content')
     <center>
@@ -35,7 +35,7 @@
                 <button class="btn btn-lg btn-primary w-25 mx-auto" type="submit">Redefinir Senha</button>
             </div>
 
-            <p><a href="{{ route('login') }}">Voltar ao Login</a></p>
+            
         </form>
     </center>
 @endsection

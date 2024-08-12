@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-
 use App\Models\Alunos;
 
 class AlunosController extends Controller
@@ -16,7 +14,7 @@ class AlunosController extends Controller
      */
     public function index()
     {
-     // select * from tb_produtos order by id desc limit 10
+     // select * from tb_alunos order by id desc limit 10
      $alunos = Alunos::all();
      return view('alunos.index', compact('alunos'));
     }
@@ -28,7 +26,7 @@ class AlunosController extends Controller
      */
     public function create()
     {
-        //
+        return view("alunos.create");
     }
 
     /**
@@ -39,8 +37,19 @@ class AlunosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dadosParaSalvar = $request->validate([
+            'nome' => 'required|max:255',
+            'cpf' => 'required|max:255',
+            'nome_pais' => 'required|max:255',
+            'telefone' => 'required|numeric',
+            'telefone_pais' => 'required|numeric',
+            'email' => 'required|max:255',
+            'email_pais' => 'required|max:255',
+        ]);
+        $aluno = Alunos::create($dadosParaSalvar);
+        return redirect()->route('alunos.index')->withSuccess(__('Aluno criado com sucesso'));
     }
+    
 
     /**
      * Display the specified resource.
@@ -50,7 +59,8 @@ class AlunosController extends Controller
      */
     public function show($id)
     {
-        //
+        $alunos = Alunos::findOrFail($id);
+        return view("alunos.show", compact("alunos"));
     }
 
     /**
@@ -61,7 +71,8 @@ class AlunosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $alunos = Alunos::findOrFail($id);
+        return view("alunos.edit", compact("alunos"));
     }
 
     /**
@@ -73,7 +84,18 @@ class AlunosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $storeData = $request->validate([
+            'nome' => 'required|max:255',
+            'cpf' => 'required|max:255',
+            'nome_pais' => 'required|max:255',
+            'telefone' => 'required|numeric',
+            'telefone_pais' => 'required|numeric',
+            'email' => 'required|max:255',
+            'email_pais' => 'required|max:255',
+        ]);
+        
+        Alunos::whereId($id)->update($storeData);
+        return redirect('/alunos')->with('completed', 'Aluno atualizado com sucesso');
     }
 
     /**
@@ -84,6 +106,8 @@ class AlunosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $alunos = Alunos::findOrFail($id);
+        $alunos->delete();
+        return redirect('/alunos')->with('completed', 'Aluno removido com sucesso');
     }
 }

@@ -15,8 +15,10 @@
             
               <!-- Container para adicionar o novo conteúdo -->
               <div id="alunoContainer" class="mt-4"></div>
-          
+              
       </div>
+
+
     </div>
     <div id="alunoContainer"></div>
     @include('layouts.partials.btnAlunos')

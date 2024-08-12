@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SolicitacoesController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\OcorrenciasController;
+use App\Http\Controllers\AlunosController;
 use App\Http\Controllers\InfoController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\ResetPasswordController;
@@ -152,9 +153,15 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             Route::get('/dependencias', function () {
                 return view('layouts.partials.dependencias');
             })->name('dependencias');
+
             //Rotas das Alunos
             Route::get("/alunos","AlunosController@index")->name("alunos.index");
-
+            Route::get("/alunos/create", "AlunosController@create")->name("alunos.create");
+            Route::post("/alunos/create", "AlunosController@store")->name("alunos.store");
+            Route::get('/alunos/{alunos}/show', 'AlunosController@show')->name('alunos.show');
+            Route::get('/alunos/{alunos}/edit', 'AlunosController@edit')->name('alunos.edit');
+            Route::patch('/alunos/{alunos}/update', 'AlunosController@update')->name('alunos.update');
+            Route::delete('/alunos/{alunos}/delete', 'AlunosController@destroy')->name('alunos.destroy');
 
             //Password reset routes
 
@@ -162,7 +169,6 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
             Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
             Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
-
             /**
              * Logout Routes
              */
