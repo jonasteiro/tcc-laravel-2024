@@ -5,7 +5,8 @@ use App\Http\Controllers\SolicitacoesController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\OcorrenciasController;
 use App\Http\Controllers\InfoController;
-
+use App\Http\Controllers\ForgotPasswordController;
+use App\Http\Controllers\ResetPasswordController;
 
 Route::get('send-mail', [MailController::class, 'index']);
 
@@ -69,7 +70,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             Route::patch('/disciplinas/{disciplina}/update', 'DisciplinasController@update')->name('disciplinas.update');
             Route::delete('/disciplinas/{disciplina}/delete', 'DisciplinasController@destroy')->name('disciplinas.destroy');
             Route::get("/disciplinas/{professor_id}/pdf", "DisciplinaPDFController@gerarPDF")->name("disciplinas.pdf");
-            
+            /*
             Route::get('/disciplinasProfessores', 'DisciplinasProfessoresController@index')->name('disciplinasProfessores.index');
             Route::get('/disciplinasProfessores/create', 'DisciplinasProfessoresController@create')->name('disciplinasProfessores.create');
             Route::post('/disciplinasProfessores/create', 'DisciplinasProfessoresController@store')->name('disciplinasProfessores.store');
@@ -78,7 +79,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             Route::patch('/disciplinasProfessores/{disciplinasProfessores}/update', 'DisciplinasProfessoresController@update')->name('disciplinasProfessores.update');
             Route::delete('/disciplinasProfessores/{disciplinasProfessores}/delete', 'DisciplinasProfessoresController@destroy')->name('disciplinasProfessores.destroy');
             Route::get("/disciplinasProfessores/pdf", "DisciplinaProfessorPDFController@gerarPDF")->name("disciplinasProfessores.pdf");
-            
+            */
             //Rotas das Ocorrências
             Route::get("/ocorrencias","OcorrenciasController@index")->name("ocorrencias.index");
             //Filtro Ocorrências
@@ -153,6 +154,14 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             })->name('dependencias');
             //Rotas das Alunos
             Route::get("/alunos","AlunosController@index")->name("alunos.index");
+
+
+            //Password reset routes
+
+            Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+            Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+            Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+            Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
 
             /**
              * Logout Routes
