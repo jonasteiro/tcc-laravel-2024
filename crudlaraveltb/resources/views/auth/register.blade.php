@@ -17,6 +17,38 @@
         	@endif
     	</div>
  
+		 <div class="form-group form-floating mb-3 w-25 mx-auto">
+        	<input type="cpf" class="form-control" name="cpf" value="{{ old('cpf') }}" placeholder="CPF" required="required">
+        	<label for="floatingCPF">CPF</label>
+        	@if ($errors->has('cpf'))
+            	<span class="text-danger text-left">{{ $errors->first('cpf') }}</span>
+        	@endif
+    	</div>
+
+		<div class="form-group form-floating mb-3 w-25 mx-auto">
+        	<input type="nome_pais" class="form-control" name="nome_pais" value="{{ old('nome_pais') }}" placeholder="Nome dos pais" required="required">
+        	<label for="floatingNomePais">Nome dos pais</label>
+        	@if ($errors->has('nome_pais'))
+            	<span class="text-danger text-left">{{ $errors->first('nome_pais') }}</span>
+        	@endif
+    	</div>
+
+		<div class="form-group form-floating mb-3 w-25 mx-auto">
+        	<input type="telefone" class="form-control" name="telefone" value="{{ old('telefone') }}" placeholder="Telefone" required="required">
+        	<label for="floatingTelefone">Telefone</label>
+        	@if ($errors->has('telefone'))
+            	<span class="text-danger text-left">{{ $errors->first('telefone') }}</span>
+        	@endif
+    	</div>
+
+		<div class="form-group form-floating mb-3 w-25 mx-auto">
+        	<input type="telefone_pais" class="form-control" name="telefone_pais" value="{{ old('telefone_pais') }}" placeholder="Telefone dos Pais" required="required">
+        	<label for="floatingtelefonePais">Telefone dos Pais</label>
+        	@if ($errors->has('telefone_pais'))
+            	<span class="text-danger text-left">{{ $errors->first('telefone_pais') }}</span>
+        	@endif
+    	</div>
+
     	<div class="form-group form-floating mb-3 w-25 mx-auto">
         	<input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="email@exemplo.com" required="required">
         	<label for="floatingEmail">E-mail</label>
@@ -25,6 +57,14 @@
         	@endif
     	</div>
        
+		<div class="form-group form-floating mb-3 w-25 mx-auto">
+        	<input type="email_pais" class="form-control" name="email_pais" value="{{ old('email_pais') }}" placeholder="email@exemplo.com" required="required">
+        	<label for="floatingEmailPais">E-mail dos Pais</label>
+        	@if ($errors->has('email_pais'))
+            	<span class="text-danger text-left">{{ $errors->first('email_pais') }}</span>
+        	@endif
+    	</div>
+
     	<div class="form-group form-floating mb-3 w-25 mx-auto">
         	<input type="password" class="form-control" name="password" value="{{ old('password') }}" placeholder="Password" required="required">
         	<label for="floatingPassword">Senha</label>

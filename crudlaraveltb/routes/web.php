@@ -86,6 +86,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
             //Rotas da Enfermaria
             Route::get("/enfermaria","EnfermariaController@index")->name("enfermaria.index");
+            Route::get("/enfermarias/pdf", "EnfermariaPDFController@gerarPDF")->name("enfermaria.pdf");
 
             //Rotas das Mensagens
             Route::get("/mensagens","MensagensController@index")->name("mensagens.index");

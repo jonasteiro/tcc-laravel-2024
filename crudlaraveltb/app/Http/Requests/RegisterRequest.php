@@ -25,7 +25,12 @@ class RegisterRequest extends FormRequest
     {
         return [
             'nome' => 'required|min:3',
+            'cpf' => 'required|min:3',
+            'nome_pais' => 'required|min:3',
+            'telefone' => 'required|min:3',
+            'telefone_pais' => 'required|min:3',
             'email' => 'required|min:3',
+            'email_pais' => 'required|min:3',
             'password' => 'required|min:3',
             'password_confirmation' => 'required|same:password'
         ];
