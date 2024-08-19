@@ -28,50 +28,7 @@
         </div>
     </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="alunoModal" tabindex="-1" aria-labelledby="alunoModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="alunoModalLabel">Formulário de Cadastro</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="infoForm">
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="nome" placeholder="Nome" name="nome">
-                            <label for="nome">Nome</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="cpf" placeholder="CPF" name="cpf">
-                            <label for="cpf">CPF</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="nome_pais" placeholder="Nome dos Pais" name="nome_pais">
-                            <label for="nome_pais">Nome dos Pais</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="telefone" placeholder="Telefone" name="telefone">
-                            <label for="telefone">Telefone</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="telefone_pais" placeholder="Telefone dos Pais" name="telefone_pais">
-                            <label for="telefone_pais">Telefone dos Pais</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="email" placeholder="Email" name="email">
-                            <label for="email">Email</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="email_pais" placeholder="Email dos Pais" name="email_pais">
-                            <label for="email_pais">Email dos Pais</label>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Enviar</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     @include('layouts.partials.btnAlunos')
 </body>

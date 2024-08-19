@@ -47,7 +47,7 @@ class AlunosController extends Controller
         $aluno->email_pais = $request->email_pais;
         $aluno->save();
     
-        return response()->json(['message' => 'Aluno salvo com sucesso!']);
+        return response()->json(['message' => 'Aluno salvo com sucesso!','id' => $aluno->id]);
     }
     
 
@@ -105,6 +105,7 @@ class AlunosController extends Controller
      */
     public function destroy($id)
     {
+        dd($id);
         $alunos = Alunos::findOrFail($id);
         $alunos->delete();
         return response()->json(['message' => 'Aluno excluído com sucesso!']);

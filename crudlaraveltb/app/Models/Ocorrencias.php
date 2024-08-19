@@ -10,9 +10,11 @@ class Ocorrencias extends Model
     use HasFactory;
 
     protected $fillable = [
-        'Titulo',
-        'Data',
-        'Status',
+        'titulo',
+        'descricao',
+        'pessoas',
+        'data',
+        'status',
         ];
         
 }

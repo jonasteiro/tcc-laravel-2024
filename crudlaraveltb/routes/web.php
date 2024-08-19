@@ -8,6 +8,7 @@ use App\Http\Controllers\AlunosController;
 use App\Http\Controllers\InfoController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\ResetPasswordController;
+use App\Models\Ocorrencias;
 
 Route::get('send-mail', [MailController::class, 'index']);
 
@@ -81,8 +82,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             Route::delete('/disciplinasProfessores/{disciplinasProfessores}/delete', 'DisciplinasProfessoresController@destroy')->name('disciplinasProfessores.destroy');
             Route::get("/disciplinasProfessores/pdf", "DisciplinaProfessorPDFController@gerarPDF")->name("disciplinasProfessores.pdf");
             */
-            //Rotas das Ocorrências
-            Route::get("/ocorrencias","OcorrenciasController@index")->name("ocorrencias.index");
+
             //Filtro Ocorrências
             Route::get('/filtro/{turma}', [OcorrenciasController::class, 'filtro'])->name('ocorrencias.filtro');
 
@@ -162,6 +162,13 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             Route::put('/alunos/{id}', [AlunosController::class, 'update'])->name('alunos.update');
             Route::delete('/alunos/{id}', [AlunosController::class, 'destroy'])->name('alunos.destroy');
             
+            //Rotas das Ocorrências
+            Route::get('/ocorrencias', [OcorrenciasController::class, 'index'])->name('ocorrencias.index');
+            Route::get('/ocorrencias/create', [OcorrenciasController::class, 'create'])->name('ocorrencias.create');
+            Route::post('/ocorrencias/create', [OcorrenciasController::class, 'store'])->name('ocorrencias.store');
+            Route::get('/ocorrencias/{id}/edit', [OcorrenciasController::class, 'edit'])->name('ocorrencias.edit');
+            Route::put('/ocorrencias/{id}', [OcorrenciasController::class, 'update'])->name('ocorrencias.update');
+            Route::delete('/ocorrencias/{id}', [OcorrenciasController::class, 'destroy'])->name('ocorrencias.destroy');
             
 
 

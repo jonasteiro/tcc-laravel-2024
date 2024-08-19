@@ -33,7 +33,7 @@ class OcorrenciasController extends Controller
      */
     public function create()
     {
-        //
+        return view("ocorrencias.create");
     }
 
     /**
@@ -44,7 +44,15 @@ class OcorrenciasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ocorrencia = new Ocorrencias();
+        $ocorrencia->titulo = $request->titulo;
+        $ocorrencia->descricao = $request->descricao;
+        $ocorrencia->pessoas = $request->pessoas;
+        $ocorrencia->data = $request->data;
+        $ocorrencia->status = $request->status;
+        $ocorrencia->save();
+
+        return response()->json(['message' => 'Ocorrencia salva com sucesso!']);
     }
 
     /**
@@ -55,7 +63,8 @@ class OcorrenciasController extends Controller
      */
     public function show($id)
     {
-        //
+        $ocorrencias = Ocorrencias::findOrFail($id);
+        return view("ocorrencias.show", compact("ocorrencias"));
     }
 
     /**
@@ -66,7 +75,8 @@ class OcorrenciasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ocorrencias = Ocorrencias::findOrFail($id);
+        return response()->json($ocorrencias);
     }
 
     /**
@@ -78,7 +88,15 @@ class OcorrenciasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $ocorrencia = Ocorrencias::findOrFail($id);
+        $ocorrencia->titulo = $request->titulo;
+        $ocorrencia->descricao = $request->descricao;
+        $ocorrencia->pessoas = $request->pessoas;
+        $ocorrencia->data = $request->data;
+        $ocorrencia->status = $request->status;
+        $ocorrencia->save();
+
+        return response()->json(['message' => 'Ocorrencia atualizado com sucesso!']);
     }
 
     /**
@@ -89,6 +107,8 @@ class OcorrenciasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ocorrencias = Ocorrencias::findOrFail($id);
+        $ocorrencias->delete();
+        return response()->json(['message' => 'Ocorrencia excluído com sucesso!']);
     }
 }
