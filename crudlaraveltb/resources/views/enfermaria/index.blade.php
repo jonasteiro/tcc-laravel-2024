@@ -21,7 +21,8 @@
 
             
             @include('layouts.partials.btnEmitirRelat')
-            <button id="emitir" class=" border border-dark border-1 border rounded-2 m-1 fs-2 fw-bold" data-bs-toggle="modal" data-bs-target="#relatorio">  Emitir Relatórios <i class="fa-regular fa-clipboard ms-1"></i> </button>
+            <!-- <button id="emitir" class=" border border-dark border-1 border rounded-2 m-1 fs-2 fw-bold" data-bs-toggle="modal" data-bs-target="#relatorio">  Emitir Relatórios <i class="fa-regular fa-clipboard ms-1"></i> </button> -->
+            <a href="{{route('enfermaria.pdf',['download'=>'pdf'])}}" class="btn btn-secondary btn-sm float-left">PDF</a>  
 
             <button id="filtrar" class="border border-dark border-1 border rounded-2 m-1 fs-2 fw-bold" data-bs-toggle="modal" data-bs-target="#filterModal"> <i class="fa-solid fa-list me-1"></i> Filtrar</button>
 
@@ -41,7 +42,7 @@
 
         <div id="infoContainer" >
             <!-- Retângulos de informações serão inseridos aqui -->
-
+            
         </div>
 
         @include('layouts.partials.btnOco')
