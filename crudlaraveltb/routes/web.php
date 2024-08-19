@@ -154,14 +154,20 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
                 return view('layouts.partials.dependencias');
             })->name('dependencias');
 
-            //Rotas das Alunos
-            Route::get("/alunos","AlunosController@index")->name("alunos.index");
-            Route::get("/alunos/create", "AlunosController@create")->name("alunos.create");
-            Route::post("/alunos/create", "AlunosController@store")->name("alunos.store");
-            Route::get('/alunos/{alunos}/show', 'AlunosController@show')->name('alunos.show');
-            Route::get('/alunos/{alunos}/edit', 'AlunosController@edit')->name('alunos.edit');
-            Route::patch('/alunos/{alunos}/update', 'AlunosController@update')->name('alunos.update');
-            Route::delete('/alunos/{alunos}/delete', 'AlunosController@destroy')->name('alunos.destroy');
+            //Rotas Alunos
+            Route::get('/alunos', [AlunosController::class, 'index'])->name('alunos.index');
+            Route::get('/alunos/create', [AlunosController::class, 'create'])->name('alunos.create');
+            Route::post('/alunos/create', [AlunosController::class, 'store'])->name('alunos.store');
+            Route::get('/alunos/{id}/edit', [AlunosController::class, 'edit'])->name('alunos.edit');
+            Route::put('/alunos/{id}', [AlunosController::class, 'update'])->name('alunos.update');
+            Route::delete('/alunos/{id}', [AlunosController::class, 'destroy'])->name('alunos.destroy');
+            
+            
+
+
+            //Rota para manter o card dos alunos
+            Route::post('/alunos', 'AlunosController@store')->name('alunos.store');
+
 
             //Password reset routes
 

@@ -37,17 +37,17 @@ class AlunosController extends Controller
      */
     public function store(Request $request)
     {
-        $dadosParaSalvar = $request->validate([
-            'nome' => 'required|max:255',
-            'cpf' => 'required|max:255',
-            'nome_pais' => 'required|max:255',
-            'telefone' => 'required|numeric',
-            'telefone_pais' => 'required|numeric',
-            'email' => 'required|max:255',
-            'email_pais' => 'required|max:255',
-        ]);
-        $aluno = Alunos::create($dadosParaSalvar);
-        return redirect()->route('alunos.index')->withSuccess(__('Aluno criado com sucesso'));
+        $aluno = new Alunos();
+        $aluno->nome = $request->nome;
+        $aluno->cpf = $request->cpf;
+        $aluno->nome_pais = $request->nome_pais;
+        $aluno->telefone = $request->telefone;
+        $aluno->telefone_pais = $request->telefone_pais;
+        $aluno->email = $request->email;
+        $aluno->email_pais = $request->email_pais;
+        $aluno->save();
+    
+        return response()->json(['message' => 'Aluno salvo com sucesso!']);
     }
     
 
@@ -72,7 +72,7 @@ class AlunosController extends Controller
     public function edit($id)
     {
         $alunos = Alunos::findOrFail($id);
-        return view("alunos.edit", compact("alunos"));
+        return response()->json($alunos);
     }
 
     /**
@@ -84,18 +84,17 @@ class AlunosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $storeData = $request->validate([
-            'nome' => 'required|max:255',
-            'cpf' => 'required|max:255',
-            'nome_pais' => 'required|max:255',
-            'telefone' => 'required|numeric',
-            'telefone_pais' => 'required|numeric',
-            'email' => 'required|max:255',
-            'email_pais' => 'required|max:255',
-        ]);
-        
-        Alunos::whereId($id)->update($storeData);
-        return redirect('/alunos')->with('completed', 'Aluno atualizado com sucesso');
+        $aluno = Alunos::findOrFail($id);
+        $aluno->nome = $request->nome;
+        $aluno->cpf = $request->cpf;
+        $aluno->nome_pais = $request->nome_pais;
+        $aluno->telefone = $request->telefone;
+        $aluno->telefone_pais = $request->telefone_pais;
+        $aluno->email = $request->email;
+        $aluno->email_pais = $request->email_pais;
+        $aluno->save();
+    
+        return response()->json(['message' => 'Aluno atualizado com sucesso!']);
     }
 
     /**
@@ -108,6 +107,6 @@ class AlunosController extends Controller
     {
         $alunos = Alunos::findOrFail($id);
         $alunos->delete();
-        return redirect('/alunos')->with('completed', 'Aluno removido com sucesso');
+        return response()->json(['message' => 'Aluno excluído com sucesso!']);
     }
 }
