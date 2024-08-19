@@ -330,12 +330,12 @@ span {
     transition: 0.3s;
 }
 .aluno-card{
-    width: 200px;
+    width: 250px;
     height: 300px;
     transition: 0.3s;
 }
 .aluno-card:hover{
-    width: 205px;
+    width: 255px;
     height: 305px;
     transition: 0.3s;
 }
@@ -346,6 +346,21 @@ span {
     transition: 0.3s;
     width: 150px;
 }
+.aluno-card {
+    position: relative; /* Necessário para posicionar o botão no canto superior direito */
+    padding: 15px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.aluno-card .btn-warning {
+    position: absolute; /* Posiciona o botão no canto superior direito */
+    top: 10px; /* Ajuste conforme necessário */
+    right: 10px; /* Ajuste conforme necessário */
+    z-index: 10; /* Garante que o botão fique acima do conteúdo do cartão */
+}
+
 #AddAlunos:hover{
     height: 55px;
     width: 155px;

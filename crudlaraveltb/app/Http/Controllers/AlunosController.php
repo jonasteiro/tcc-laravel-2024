@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-
 use App\Models\Alunos;
 
 class AlunosController extends Controller
@@ -16,7 +14,7 @@ class AlunosController extends Controller
      */
     public function index()
     {
-     // select * from tb_produtos order by id desc limit 10
+     // select * from tb_alunos order by id desc limit 10
      $alunos = Alunos::all();
      return view('alunos.index', compact('alunos'));
     }
@@ -28,7 +26,7 @@ class AlunosController extends Controller
      */
     public function create()
     {
-        //
+        return view("alunos.create");
     }
 
     /**
@@ -39,8 +37,19 @@ class AlunosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $aluno = new Alunos();
+        $aluno->nome = $request->nome;
+        $aluno->cpf = $request->cpf;
+        $aluno->nome_pais = $request->nome_pais;
+        $aluno->telefone = $request->telefone;
+        $aluno->telefone_pais = $request->telefone_pais;
+        $aluno->email = $request->email;
+        $aluno->email_pais = $request->email_pais;
+        $aluno->save();
+    
+        return response()->json(['message' => 'Aluno salvo com sucesso!','id' => $aluno->id]);
     }
+    
 
     /**
      * Display the specified resource.
@@ -50,7 +59,8 @@ class AlunosController extends Controller
      */
     public function show($id)
     {
-        //
+        $alunos = Alunos::findOrFail($id);
+        return view("alunos.show", compact("alunos"));
     }
 
     /**
@@ -61,7 +71,8 @@ class AlunosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $alunos = Alunos::findOrFail($id);
+        return response()->json($alunos);
     }
 
     /**
@@ -73,7 +84,17 @@ class AlunosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $aluno = Alunos::findOrFail($id);
+        $aluno->nome = $request->nome;
+        $aluno->cpf = $request->cpf;
+        $aluno->nome_pais = $request->nome_pais;
+        $aluno->telefone = $request->telefone;
+        $aluno->telefone_pais = $request->telefone_pais;
+        $aluno->email = $request->email;
+        $aluno->email_pais = $request->email_pais;
+        $aluno->save();
+    
+        return response()->json(['message' => 'Aluno atualizado com sucesso!']);
     }
 
     /**
@@ -84,6 +105,9 @@ class AlunosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        dd($id);
+        $alunos = Alunos::findOrFail($id);
+        $alunos->delete();
+        return response()->json(['message' => 'Aluno excluído com sucesso!']);
     }
 }

@@ -45,8 +45,19 @@
     </div>
 
     <!-- Container para informações -->
-    <div id="infoContainer">
-        <!-- Retângulos de informações serão inseridos aqui -->
+    <div id="infoContainer" class="mt-4 d-flex flex-wrap mx-2 gap-2">
+        @foreach($ocorrencias as $ocorrencia)
+            <div class="ocorrencia-card rounded text-center border border-dark border-2 excesso" data-id="{{ $ocorrencia->id }}">
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-sm btn-warning m-2" onclick="editOcorrencia({{ $ocorrencia->id }})">Editar</button>
+                </div>
+                <p><strong>Título:</strong> {{ $ocorrencia->title }}</p>
+                <p><strong>Descrição:</strong> {{ $ocorrencia->description }}</p>
+                <p><strong>Participantes:</strong> {{ $ocorrencia->participants }}</p>
+                <p><strong>Data:</strong> {{ $ocorrencia->date }}</p>
+                <p><strong>Status:</strong> {{ $ocorrencia->status }}</p>
+            </div>
+        @endforeach
     </div>
 
     <!-- Botões adicionais -->
@@ -55,5 +66,5 @@
 
 </body>
 @include('layouts.partials.btnOrdenar')
-</html>
 
+</html>

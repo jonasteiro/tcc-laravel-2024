@@ -4,9 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SolicitacoesController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\OcorrenciasController;
+use App\Http\Controllers\AlunosController;
 use App\Http\Controllers\InfoController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\ResetPasswordController;
+use App\Models\Ocorrencias;
 
 Route::get('send-mail', [MailController::class, 'index']);
 
@@ -80,8 +82,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             Route::delete('/disciplinasProfessores/{disciplinasProfessores}/delete', 'DisciplinasProfessoresController@destroy')->name('disciplinasProfessores.destroy');
             Route::get("/disciplinasProfessores/pdf", "DisciplinaProfessorPDFController@gerarPDF")->name("disciplinasProfessores.pdf");
             */
-            //Rotas das Ocorrências
-            Route::get("/ocorrencias","OcorrenciasController@index")->name("ocorrencias.index");
+
             //Filtro Ocorrências
             Route::get('/filtro/{turma}', [OcorrenciasController::class, 'filtro'])->name('ocorrencias.filtro');
 
@@ -153,8 +154,27 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             Route::get('/dependencias', function () {
                 return view('layouts.partials.dependencias');
             })->name('dependencias');
-            //Rotas das Alunos
-            Route::get("/alunos","AlunosController@index")->name("alunos.index");
+
+            //Rotas Alunos
+            Route::get('/alunos', [AlunosController::class, 'index'])->name('alunos.index');
+            Route::get('/alunos/create', [AlunosController::class, 'create'])->name('alunos.create');
+            Route::post('/alunos/create', [AlunosController::class, 'store'])->name('alunos.store');
+            Route::get('/alunos/{id}/edit', [AlunosController::class, 'edit'])->name('alunos.edit');
+            Route::put('/alunos/{id}', [AlunosController::class, 'update'])->name('alunos.update');
+            Route::delete('/alunos/{id}', [AlunosController::class, 'destroy'])->name('alunos.destroy');
+            
+            //Rotas das Ocorrências
+            Route::get('/ocorrencias', [OcorrenciasController::class, 'index'])->name('ocorrencias.index');
+            Route::get('/ocorrencias/create', [OcorrenciasController::class, 'create'])->name('ocorrencias.create');
+            Route::post('/ocorrencias/create', [OcorrenciasController::class, 'store'])->name('ocorrencias.store');
+            Route::get('/ocorrencias/{id}/edit', [OcorrenciasController::class, 'edit'])->name('ocorrencias.edit');
+            Route::put('/ocorrencias/{id}', [OcorrenciasController::class, 'update'])->name('ocorrencias.update');
+            Route::delete('/ocorrencias/{id}', [OcorrenciasController::class, 'destroy'])->name('ocorrencias.destroy');
+            
+
+
+            //Rota para manter o card dos alunos
+            Route::post('/alunos', 'AlunosController@store')->name('alunos.store');
 
 
             //Password reset routes
@@ -163,7 +183,6 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
             Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
             Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('password.update');
-
             /**
              * Logout Routes
              */
