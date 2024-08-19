@@ -40,18 +40,42 @@
 
         </div>
 
-        <div id="infoContainer" >
-            <!-- Retângulos de informações serão inseridos aqui -->
-            
-        </div>
+        <div id="infoContainer" class="mt-4 d-flex flex-wrap mx-2 gap-2">
+        @foreach($ocorrencias as $ocorrencia)
+            <div class="ocorrencia-card rounded text-center border border-dark border-2 excesso" data-id="{{ $ocorrencia->id }}">
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-sm btn-warning m-2" onclick="editOcorrencia({{ $ocorrencia->id }})">Editar</button>
+                </div>
+                <p><strong>Título:</strong> {{ $ocorrencia->titulo }}</p>
+                <p><strong>Descrição:</strong> {{ $ocorrencia->descricao }}</p>
+                <p><strong>Participantes:</strong> {{ $ocorrencia->pessoas }}</p>
+                <p><strong>Data:</strong> {{ $ocorrencia->created_at }}</p>
+                <p><strong>Status:</strong> 
+                @php
+                
+                if($ocorrencia->status == 0){
+                    echo 'Concluído';
+                }
+                if($ocorrencia->status == 1){
+                    echo 'Em Andamento';
+                }
+                if($ocorrencia->status == 2){
+                    echo 'Pendente';
+                }
+                
+                @endphp</p>
+            </div>
+        @endforeach
+    </div>
 
-        @include('layouts.partials.btnOco')
+
 
 
 
 
 
     </body>
+    @include('layouts.partials.btnOco')
     @include('layouts.partials.btnFiltro')
     @include('layouts.partials.btnOrdenar')
     </html>

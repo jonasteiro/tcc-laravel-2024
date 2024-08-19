@@ -10,8 +10,10 @@ class Enfermaria extends Model
     use HasFactory;
 
     protected $fillable = [
-        'Nome',
-        'Data',
-        'Status',
+        'titulo',
+        'descricao',
+        'pessoas',
+        'data',
+        'status',
         ];
 }

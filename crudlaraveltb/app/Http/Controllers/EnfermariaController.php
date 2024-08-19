@@ -14,8 +14,8 @@ class EnfermariaController extends Controller
     public function index()
     {
          // select * from tb_produtos order by id desc limit 10
-     $enfermaria = Enfermaria::orderBy("id", "desc")->paginate(10);
-     return view("enfermaria.index", compact("enfermaria"));
+         $enfermaria = Enfermaria::all();
+         return view('enfermaria.index', compact('enfermaria'));
     }
 
     /**
@@ -25,7 +25,7 @@ class EnfermariaController extends Controller
      */
     public function create()
     {
-        //
+        return view("enfermaria.create");
     }
 
     /**
@@ -36,7 +36,15 @@ class EnfermariaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $enfermaria = new Enfermaria();
+        $enfermaria->titulo = $request->title;
+        $enfermaria->descricao = $request->description;
+        $enfermaria->pessoas = $request->participants;
+        $enfermaria->data = $request->date;
+        $enfermaria->status = $request->status;
+        $enfermaria->save();
+
+        return response()->json(['message' => 'enfermaria salva com sucesso!', 'enfermaria' => $enfermaria]);
     }
 
     /**
