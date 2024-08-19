@@ -45,14 +45,14 @@ class OcorrenciasController extends Controller
     public function store(Request $request)
     {
         $ocorrencia = new Ocorrencias();
-        $ocorrencia->titulo = $request->titulo;
-        $ocorrencia->descricao = $request->descricao;
-        $ocorrencia->pessoas = $request->pessoas;
-        $ocorrencia->data = $request->data;
+        $ocorrencia->titulo = $request->title;
+        $ocorrencia->descricao = $request->description;
+        $ocorrencia->pessoas = $request->participants;
+        $ocorrencia->data = $request->date;
         $ocorrencia->status = $request->status;
         $ocorrencia->save();
 
-        return response()->json(['message' => 'Ocorrencia salva com sucesso!']);
+        return response()->json(['message' => 'Ocorrencia salva com sucesso!', 'ocorrencia' => $ocorrencia]);
     }
 
     /**
@@ -89,10 +89,10 @@ class OcorrenciasController extends Controller
     public function update(Request $request, $id)
     {
         $ocorrencia = Ocorrencias::findOrFail($id);
-        $ocorrencia->titulo = $request->titulo;
-        $ocorrencia->descricao = $request->descricao;
-        $ocorrencia->pessoas = $request->pessoas;
-        $ocorrencia->data = $request->data;
+        $ocorrencia->titulo = $request->title;
+        $ocorrencia->descricao = $request->description;
+        $ocorrencia->pessoas = $request->participants;
+        $ocorrencia->data = $request->date;
         $ocorrencia->status = $request->status;
         $ocorrencia->save();
 

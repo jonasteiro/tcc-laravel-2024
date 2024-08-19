@@ -27,9 +27,9 @@
                     <div class="form-group">
                         <label for="status">Status</label>
                         <select class="form-control" id="status" name="status" required>
-                            <option value="Concluído">Concluído</option>
-                            <option value="Em progresso">Em progresso</option>
-                            <option value="Pendente">Pendente</option>
+                            <option value="0">Concluído</option>
+                            <option value="1">Em progresso</option>
+                            <option value="2">Pendente</option>
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Salvar</button>
@@ -40,6 +40,7 @@
 </div>
 
 <script>
+    console.log('teste incluse')
 document.addEventListener('DOMContentLoaded', function() {
     const infoForm = document.getElementById('infoForm');
 
@@ -62,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
         fetch(url, {
             method: method,
             headers: {
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                'X-CSRF-TOKEN': '{{csrf_token()}}',
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(data)
@@ -181,6 +182,65 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.removeProperty('padding-right');
     });
 });
+
+//nnsauhnduansduianduiansduiasn
+
+document.getElementById('infoForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const formData = new FormData(this);
+        const ocorrenciaId = this.getAttribute('data-id'); // Obtém o ID do ocorrencia do atributo data-id
+    
+        const url = ocorrenciaId ? `/ocorrencias/${ocorrenciaId}` : '{{ route('ocorrencias.store') }}'; // URL para PUT ou POST
+        const method = ocorrenciaId ? 'PUT' : 'POST'; // Método para PUT ou POST
+    
+        fetch(url, {
+            method: method,
+            headers: {
+                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+            title: formData.get('title'),
+            description: formData.get('description'),
+            participants: formData.get('participants'),
+            date: formData.get('date'),
+            status: formData.get('status')
+
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.message === 'ocorrencia salvo com sucesso!' || data.message === 'ocorrencia atualizado com sucesso!') {
+                if (ocorrenciaId) {
+                    updateOcorrencia(ocorrenciaId, {
+                    title: formData.get('title'),
+                    description: formData.get('description'),
+                    participants: formData.get('participants'),
+                    date: formData.get('date'),
+                    status: formData.get('status')
+                    });
+                } else {
+                    renderOcorrencia({
+                    id: data.id,
+                    title: formData.get('title'),
+                    description: formData.get('description'),
+                    participants: formData.get('participants'),
+                    date: formData.get('date'),
+                    status: formData.get('status')
+                    });
+                }
+    
+                const infoModal = bootstrap.Modal.getInstance(document.getElementById('infoModal'));
+                infoModal.hide();
+                document.getElementById('infoForm').reset()
+                document.getElementById('infoForm').removeAttribute('data-id');
+                document.querySelector('.btn-danger')?.remove(); // Remove o botão de excluir se existir
+            }
+        })
+        document.getElementById('infoForm').reset()
+        .catch(error => console.error('Erro:', error));
+    });
 
 </script>
 

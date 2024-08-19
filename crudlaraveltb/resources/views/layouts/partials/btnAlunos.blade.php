@@ -102,11 +102,12 @@
     
                 const alunoModal = bootstrap.Modal.getInstance(document.getElementById('alunoModal'));
                 alunoModal.hide();
-                document.getElementById('infoForm').reset();
+                document.getElementById('infoForm').reset()
                 document.getElementById('infoForm').removeAttribute('data-id');
                 document.querySelector('.btn-danger')?.remove(); // Remove o botão de excluir se existir
             }
         })
+        document.getElementById('infoForm').reset()
         .catch(error => console.error('Erro:', error));
     });
     
