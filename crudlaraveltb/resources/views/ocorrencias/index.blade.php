@@ -23,9 +23,8 @@
     <div class="d-flex align-items-center justify-content-center border border-dark border-2 p-2 text-center">
         <!-- Botão para emitir relatório -->
         @include('layouts.partials.btnEmitirRelat')
-        <button id="emitir" class="border border-dark border-1 border rounded-2 m-1 fs-2 fw-bold" data-bs-toggle="modal" data-bs-target="#relatorio">
-            Emitir Relatório <i class="fa-regular fa-clipboard ms-1"></i>
-        </button>
+        <a href="{{route('ocorrencias.pdf',['download'=>'pdf'])}}" class="btn btn-secondary btn-sm float-left">PDF</a>   
+
         
         <!-- Botão para abrir modal de filtro -->
         <button id="filtrar" class="border border-dark border-1 border rounded-2 m-1 fs-2 fw-bold" data-bs-toggle="modal" data-bs-target="#filterModal">
@@ -46,32 +45,34 @@
 
     <!-- Container para informações -->
     <div id="infoContainer" class="mt-4 d-flex flex-wrap mx-2 gap-2">
-        @foreach($ocorrencias as $ocorrencia)
-            <div class="ocorrencia-card rounded text-center border border-dark border-2 excesso" data-id="{{ $ocorrencia->id }}">
-                <div class="d-flex justify-content-end">
-                    <button class="btn btn-sm btn-warning m-2" onclick="editOcorrencia({{ $ocorrencia->id }})">Editar</button>
-                </div>
-                <p><strong>Título:</strong> {{ $ocorrencia->titulo }}</p>
-                <p><strong>Descrição:</strong> {{ $ocorrencia->descricao }}</p>
-                <p><strong>Participantes:</strong> {{ $ocorrencia->pessoas }}</p>
-                <p><strong>Data:</strong> {{ $ocorrencia->created_at }}</p>
-                <p><strong>Status:</strong> 
-                @php
-                
-                if($ocorrencia->status == 0){
-                    echo 'Concluído';
-                }
-                if($ocorrencia->status == 1){
-                    echo 'Em Andamento';
-                }
-                if($ocorrencia->status == 2){
-                    echo 'Pendente';
-                }
-                
-                @endphp</p>
+    @foreach($ocorrencias as $ocorrencia)
+        <div class="ocorrencia-card rounded text-center border border-dark border-2 excesso" 
+             data-id="{{ $ocorrencia->id }}" 
+             data-created="{{ $ocorrencia->created_at }}" 
+             data-title="{{ $ocorrencia->titulo }}">
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-sm btn-warning m-2" onclick="editOcorrencia({{ $ocorrencia->id }})">Editar</button>
             </div>
-        @endforeach
-    </div>
+            <p><strong>Título:</strong> {{ $ocorrencia->titulo }}</p>
+            <p><strong>Descrição:</strong> {{ $ocorrencia->descricao }}</p>
+            <p><strong>Participantes:</strong> {{ $ocorrencia->pessoas }}</p>
+            <p><strong>Data:</strong> {{ $ocorrencia->created_at }}</p>
+            <p><strong>Status:</strong> 
+            @php
+            if($ocorrencia->status == 0){
+                echo 'Concluído';
+            }
+            if($ocorrencia->status == 1){
+                echo 'Em Andamento';
+            }
+            if($ocorrencia->status == 2){
+                echo 'Pendente';
+            }
+            @endphp</p>
+        </div>
+    @endforeach
+</div>
+
 
     <!-- Botões adicionais -->
     @include('layouts.partials.btnOco')

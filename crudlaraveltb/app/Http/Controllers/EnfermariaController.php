@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Enfermaria;
 use Illuminate\Http\Request;
 
@@ -11,11 +12,12 @@ class EnfermariaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-         // select * from tb_produtos order by id desc limit 10
-         $enfermaria = Enfermaria::all();
-         return view('enfermaria.index', compact('enfermaria'));
+
+        $enfermaria = Enfermaria::all();
+        return view('enfermaria.index', compact('enfermaria'));
     }
 
     /**
@@ -36,15 +38,8 @@ class EnfermariaController extends Controller
      */
     public function store(Request $request)
     {
-        $enfermaria = new Enfermaria();
-        $enfermaria->titulo = $request->title;
-        $enfermaria->descricao = $request->description;
-        $enfermaria->pessoas = $request->participants;
-        $enfermaria->data = $request->date;
-        $enfermaria->status = $request->status;
-        $enfermaria->save();
-
-        return response()->json(['message' => 'enfermaria salva com sucesso!', 'enfermaria' => $enfermaria]);
+        $enfermaria = Enfermaria::create($request->all());
+        return response()->json(['message' => 'Atendimento salvo com sucesso!', 'id' => $enfermaria->id]);
     }
 
     /**
@@ -55,7 +50,8 @@ class EnfermariaController extends Controller
      */
     public function show($id)
     {
-        //
+        $enfermaria = Enfermaria::findOrFail($id);
+        return view("enfermaria.show", compact("enfermaria"));
     }
 
     /**
@@ -66,7 +62,8 @@ class EnfermariaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $enfermaria = Enfermaria::findOrFail($id);
+        return response()->json($enfermaria);
     }
 
     /**
@@ -78,7 +75,16 @@ class EnfermariaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $enfermaria = Enfermaria::findOrFail($id);
+        $enfermaria->titulo = $request->titulo;
+        $enfermaria->descricao = $request->descricao;
+        $enfermaria->pessoas = $request->pessoas;
+        $enfermaria->turma = $request->turma;
+        $enfermaria->data = $request->data;
+        $enfermaria->status = $request->status;
+        $enfermaria->save();
+
+        return response()->json(['message' => 'Atendimento atualizado com sucesso!']);
     }
 
     /**
@@ -89,6 +95,29 @@ class EnfermariaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        dd($id);
+        $enfermaria = Enfermaria::findOrFail($id);
+        $enfermaria->delete();
+        return response()->json(['message' => 'Atendimento excluído com sucesso!']);
     }
+
+    //Função Graficos Enfermaria
+    public function showMonthlyChart(Request $request)
+    {
+        $turmas = $request->input('turmas', []);
+        
+        // Filtrar atendimentos por turma se as turmas estiverem definidas
+        $query = Enfermaria::query();
+        
+        if ($turmas) {
+            $query->whereIn('turma', $turmas);
+        }
+        
+        $data = $query->selectRaw('DATE_FORMAT(data, "%Y-%m") as month, turma, COUNT(*) as total')
+                      ->groupBy('month', 'turma')
+                      ->get();
+        
+        return view('layouts.partials.graficosEnf', compact('data'));
+    }
+    
 }

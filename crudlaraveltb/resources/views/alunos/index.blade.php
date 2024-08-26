@@ -16,6 +16,8 @@
                             <button class="btn btn-sm btn-warning m-2" onclick="editAluno({{ $aluno->id }})">Editar</button>
                         </div>
                         <p><strong>Nome:</strong> {{ $aluno->nome }}</p>
+                        <p><strong>Curso:</strong> {{ $aluno->curso }}</p>
+                        <p><strong>Turma:</strong> {{ $aluno->turma }}</p>
                         <p><strong>CPF:</strong> {{ $aluno->cpf }}</p>
                         <p><strong>Nome dos Pais:</strong> {{ $aluno->nome_pais }}</p>
                         <p><strong>Telefone:</strong> {{ $aluno->telefone }}</p>

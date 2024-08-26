@@ -4,7 +4,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="infoModalLabel">Adicionar/Editar Ocorrência</h5>
+                <h5 class="modal-title" id="infoModalLabel">Adicionar/Editar Atendimento</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -18,8 +18,8 @@
                         <textarea class="form-control" id="descricao" name="descricao" rows="3" required></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="participantes">Participantes</label>
-                        <input type="text" class="form-control" id="participantes" name="participantes" required>
+                        <label for="pessoas">Alunos atendidos</label>
+                        <input type="text" class="form-control" id="pessoas" name="pessoas" required>
                     </div>
                     <div class="form-group">
                         <label for="turma">Turma</label>
@@ -49,11 +49,11 @@
         event.preventDefault();
 
         const formData = new FormData(this);
-        const ocorrenciaId = this.getAttribute('data-id'); // Obtém o ID do aluno do atributo data-id
+        const enfermariaId = this.getAttribute('data-id'); // Obtém o ID do aluno do atributo data-id
 
-        const url = ocorrenciaId ? /ocorrencia/${ocorrenciaId} :
-        '{{ route('ocorrencias.store') }}'; // URL para PUT ou POST
-        const method = ocorrenciaId ? 'PUT' : 'POST'; // Método para PUT ou POST
+        const url = enfermariaId ? /enfermaria/${enfermariaId} :
+        '{{ route('enfermaria.store') }}'; // URL para PUT ou POST
+        const method = enfermariaId ? 'PUT' : 'POST'; // Método para PUT ou POST
 
         fetch(url, {
                 method: method,
@@ -64,7 +64,7 @@
                 body: JSON.stringify({
                     titulo: formData.get('titulo'),
                     descricao: formData.get('descricao'),
-                    participantes: formData.get('participantes'),
+                    pessoas: formData.get('pessoas'),
                     turma: formData.get('turma'),
                     data: formData.get('data'),
                     status: formData.get('status'),
@@ -72,23 +72,23 @@
             })
             .then(response => response.json())
             .then(data => {
-                if (data.message === 'Ocorrencia salva com sucesso!' || data.message ===
-                    'Ocorrencia atualizada com sucesso!') {
-                    if (ocorrenciaId) {
-                        updateOcorrencia(ocorrenciaId, {
+                if (data.message === 'Atendimento salvo com sucesso!' || data.message ===
+                    'Atendimento atualizada com sucesso!') {
+                    if (enfermariaId) {
+                        updateEnfermaria(enfermariaId, {
                             titulo: formData.get('titulo'),
                             descricao: formData.get('descricao'),
-                            participantes: formData.get('participantes'),
+                            pessoas: formData.get('pessoas'),
                             turma: formData.get('turma'),
                             data: formData.get('data'),
                             status: formData.get('status'),
                         });
                     } else {
-                        renderOcorrencia({
+                        renderEnfermaria({
                             id: data.id,
                             titulo: formData.get('titulo'),
                             descricao: formData.get('descricao'),
-                            participantes: formData.get('participantes'),
+                            pessoas: formData.get('pessoas'),
                             turma: formData.get('turma'),
                             data: formData.get('data'),
                             status: formData.get('status'),
@@ -105,58 +105,58 @@
             .catch(error => console.error('Erro:', error));
     });
 
-    function renderOcorrencia(ocorrencia) {
+    function renderEnfermaria(enfermaria) {
         const infoBox = document.createElement('div');
         infoBox.className = 'aluno-card rounded text-center border border-dark border-2 excesso';
-        infoBox.setAttribute('data-id', ocorrencia.id);
+        infoBox.setAttribute('data-id', enfermaria.id);
 
         infoBox.innerHTML = `
             <div class="d-flex justify-content-end">
-                <button class="btn btn-sm btn-warning m-2" onclick="editOcorrencia(${ocorrencia.id})">Editar</button>
+                <button class="btn btn-sm btn-warning m-2" onclick="editEnfermaria(${enfermaria.id})">Editar</button>
             </div>
-                <p><strong>Título:</strong> ${ocorrencia.titulo}</p>
-                <p><strong>Descrição:</strong> ${ocorrencia.descricao}</p>
-                <p><strong>Participantes:</strong> ${ocorrencia.participantes}</p>
-                <p><strong>Turma:</strong> ${ocorrencia.turma}</p>
-                <p><strong>Data:</strong> ${ocorrencia.data}</p>
-                <p><strong>Status:</strong> ${ocorrencia.status}</p>
+                <p><strong>Título:</strong> ${enfermaria.titulo}</p>
+                <p><strong>Descrição:</strong> ${enfermaria.descricao}</p>
+                <p><strong>Alunos atendidos:</strong> ${enfermaria.pessoas}</p>
+                <p><strong>Turma:</strong> ${enfermaria.turma}</p>
+                <p><strong>Data:</strong> ${enfermaria.data}</p>
+                <p><strong>Status:</strong> ${enfermaria.status}</p>
         `;
 
-        document.getElementById('ocorrenciaContainer').appendChild(infoBox);
+        document.getElementById('enfermariaContainer').appendChild(infoBox);
     }
 
-    function updateOcorrencia(id, ocorrencia) {
+    function updateEnfermaria(id, enfermaria) {
         const card = document.querySelector([data-id='${id}']);
         if (card) {
             card.innerHTML = `
                 <div class="d-flex justify-content-end">
-                    <button class="btn btn-sm btn-warning m-2" onclick="editOcorrencia(${id})">Editar</button>
+                    <button class="btn btn-sm btn-warning m-2" onclick="editEnfermaria(${id})">Editar</button>
                 </div>
-                <p><strong>Título:</strong> ${ocorrencia.titulo}</p>
-                <p><strong>Descrição:</strong> ${ocorrencia.descricao}</p>
-                <p><strong>Participantes:</strong> ${ocorrencia.participantes}</p>
-                <p><strong>Turma:</strong> ${ocorrencia.turma}</p>
-                <p><strong>Data:</strong> ${ocorrencia.data}</p>
-                <p><strong>Status:</strong> ${ocorrencia.status}</p>
+                <p><strong>Título:</strong> ${enfermaria.titulo}</p>
+                <p><strong>Descrição:</strong> ${enfermaria.descricao}</p>
+                <p><strong>Alunos atendidos:</strong> ${enfermaria.pessoas}</p>
+                <p><strong>Turma:</strong> ${enfermaria.turma}</p>
+                <p><strong>Data:</strong> ${enfermaria.data}</p>
+                <p><strong>Status:</strong> ${enfermaria.status}</p>
             `;
         }
     }
 
-    function editOcorrencia(id) {
-        fetch(/ocorrencias/${id}/edit)
+    function editEnfermaria(id) {
+        fetch(/enfermaria/${id}/edit)
             .then(response => response.json())
-            .then(ocorrencia => {
-                document.getElementById('titulo').value = ocorrencia.titulo;
-                document.getElementById('descricao').value = ocorrencia.descricao;
-                document.getElementById('participantes').value = ocorrencia.participantes;
-                document.getElementById('turma').value = ocorrencia.turma;
-                document.getElementById('data').value = ocorrencia.data;
-                document.getElementById('status').value = ocorrencia.status;
+            .then(enfermaria => {
+                document.getElementById('titulo').value = enfermaria.titulo;
+                document.getElementById('descricao').value = enfermaria.descricao;
+                document.getElementById('pessoas').value = enfermaria.pessoas;
+                document.getElementById('turma').value = enfermaria.turma;
+                document.getElementById('data').value = enfermaria.data;
+                document.getElementById('status').value = enfermaria.status;
 
                 let deleteButton = document.querySelector('.btn-danger');
                 if (!deleteButton) {
                     deleteButton =
-                    <button type="button" class="btn btn-danger" onclick="deleteOcorrencia(${id})">Excluir</button>;
+                    <button type="button" class="btn btn-danger" onclick="deleteEnfermaria(${id})">Excluir</button>;
                     document.getElementById('infoForm').insertAdjacentHTML('beforeend', deleteButton);
                 }
 
@@ -168,9 +168,9 @@
             .catch(error => console.error('Erro:', error));
     }
 
-    function deleteOcorrencia(id) {
-        if (confirm('Tem certeza que deseja excluir esta ocorrencia?')) {
-            fetch(/ocorrencias/${id}, {
+    function deleteEnfermaria(id) {
+        if (confirm('Tem certeza que deseja excluir este atendimento?')) {
+            fetch(/enfermaria/${id}, {
                     method: 'DELETE',
                     headers: {
                         'X-CSRF-TOKEN': '{{ csrf_token() }}'
@@ -178,7 +178,7 @@
                 })
                 .then(response => response.json())
                 .then(data => {
-                    if (data.message === 'Ocorrencia excluída com sucesso!') {
+                    if (data.message === 'Atendimento excluída com sucesso!') {
                         const card = document.querySelector([data-id='${id}']);
                         if (card) {
                             card.remove();

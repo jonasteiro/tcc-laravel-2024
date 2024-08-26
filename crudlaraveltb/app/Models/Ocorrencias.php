@@ -12,7 +12,8 @@ class Ocorrencias extends Model
     protected $fillable = [
         'titulo',
         'descricao',
-        'pessoas',
+        'participantes',
+        'turma',
         'data',
         'status',
         ];

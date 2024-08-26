@@ -40,12 +40,17 @@
     background-color: #96D67B;
 }
 /* Página Inicial */
-#btn1{
+.btn-curso{
     width: 100%;
     height: 150px;
     font-size: 30px;
     border-radius: 40px;
-    font-weight: bold;  
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px; 
 }
 
 
@@ -320,23 +325,34 @@ span {
         font-size: 20px !important;
     }
 }
-/*Turmas Info.blade.php*/
-#btn03{
+/* Turmas Info.blade.php */
+.btn-turma {
+    display: inline-block;
     width: 50%;
+    margin: 10px;
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    color: #000;
+    font-size: 1.25rem;
     transition: 0.3s;
+    background-color: #f8f9fa; /* Ajuste a cor conforme necessário */
 }
-#btn03:hover{
+
+.btn-turma:hover {
     width: 51%;
-    transition: 0.3s;
+    background-color: #e9ecef; /* Ajuste a cor conforme necessário */
 }
 .aluno-card{
-    width: 250px;
-    height: 300px;
+    width: 300px;
+    height: 350px;
     transition: 0.3s;
 }
 .aluno-card:hover{
-    width: 255px;
-    height: 305px;
+    width: 305px;
+    height: 355px;
     transition: 0.3s;
 }
 /*Alunos.index */
@@ -369,4 +385,9 @@ span {
 /*btnAlunos*/
 .excesso{
     font-size: small;
+}
+/* Tamanho gráfico */
+#myChart{
+    width: 80% !important;
+    height: 80% !important;
 }

@@ -14,9 +14,8 @@ class InfoController extends Controller
      */
     public function index()
     {
-        // select * from tb_produtos order by id desc limit 10
-     $info = Info::orderBy("id", "desc")->paginate(10);
-     return view("info.index", compact("info"));
+        $info = Info::all();
+        return view('info.index', compact('info'));
     }
 
     /**

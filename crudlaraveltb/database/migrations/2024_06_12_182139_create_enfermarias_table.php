@@ -15,9 +15,12 @@ return new class extends Migration
     {
         Schema::create('enfermarias', function (Blueprint $table) {
             $table->id();
-            $table->string("Nome");
-            $table->dateTime("Data");
-            $table->boolean("Status");
+            $table->string("titulo");
+            $table->string("descricao");
+            $table->dateTime("data");
+            $table->string("pessoas");
+            $table->string("turma");
+            $table->string("status");
             $table->timestamps();
             
 

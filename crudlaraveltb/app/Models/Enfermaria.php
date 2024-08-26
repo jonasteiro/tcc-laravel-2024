@@ -13,6 +13,7 @@ class Enfermaria extends Model
         'titulo',
         'descricao',
         'pessoas',
+        'turma',
         'data',
         'status',
         ];

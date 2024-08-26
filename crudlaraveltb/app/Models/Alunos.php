@@ -17,5 +17,7 @@ class Alunos extends Model
         'telefone_pais',
         'email',
         'email_pais',
+        'curso',
+        'turma',
     ];
 }

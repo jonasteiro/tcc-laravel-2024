@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Informática</title>
-    @include('layouts.partials.essentials')
-
-</head>
+@include('layouts.partials.essentials')
 
 <body id="body">
     @include('layouts.partials.navbarlogged')
@@ -17,9 +7,9 @@
     <div class="d-flex text-center border border-dark border-3 border-top-0  ">
 
         <div class="border border-dark border-2 m-3 box01 p-2 fs-1" id="ic"> <i class="fa-solid fa-laptop"></i>
-            Informática 2</div>
-
+            Petróleo e Gás 1</div>
         @include('layouts.partials.btnTurmas')
+
 
     </div>
 
@@ -52,9 +42,13 @@
     </div>
 
 
+    </div>
 
+
+
+
+
+    <script src="{{ asset('js/editAluno.js') }}"></script>
 
 
 </body>
-
-</html>

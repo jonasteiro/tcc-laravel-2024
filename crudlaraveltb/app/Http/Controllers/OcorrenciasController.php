@@ -44,15 +44,16 @@ class OcorrenciasController extends Controller
      */
     public function store(Request $request)
     {
+        
         $ocorrencia = new Ocorrencias();
-        $ocorrencia->titulo = $request->title;
-        $ocorrencia->descricao = $request->description;
-        $ocorrencia->pessoas = $request->participants;
-        $ocorrencia->data = $request->date;
+        $ocorrencia->titulo = $request->titulo;
+        $ocorrencia->descricao = $request->descricao;
+        $ocorrencia->participantes = $request->participantes;
+        $ocorrencia->turma = $request->turma;
+        $ocorrencia->data = $request->data;
         $ocorrencia->status = $request->status;
         $ocorrencia->save();
-
-        return response()->json(['message' => 'Ocorrencia salva com sucesso!', 'ocorrencia' => $ocorrencia]);
+        return response()->json(['message' => 'Ocorrencia salva com sucesso!', 'id' =>$ocorrencia->id]);
     }
 
     /**
@@ -89,10 +90,11 @@ class OcorrenciasController extends Controller
     public function update(Request $request, $id)
     {
         $ocorrencia = Ocorrencias::findOrFail($id);
-        $ocorrencia->titulo = $request->title;
-        $ocorrencia->descricao = $request->description;
-        $ocorrencia->pessoas = $request->participants;
-        $ocorrencia->data = $request->date;
+        $ocorrencia->titulo = $request->titulo;
+        $ocorrencia->descricao = $request->descricao;
+        $ocorrencia->participantes = $request->participantes;
+        $ocorrencia->turma = $request->turma;
+        $ocorrencia->data = $request->data;
         $ocorrencia->status = $request->status;
         $ocorrencia->save();
 
@@ -111,4 +113,24 @@ class OcorrenciasController extends Controller
         $ocorrencias->delete();
         return response()->json(['message' => 'Ocorrencia excluído com sucesso!']);
     }
+
+
+       //Função Graficos Ocorrências
+       public function showMonthlyChartOco(Request $request)
+       {
+           $turmas = $request->input('turmas', []);
+           
+           // Filtrar atendimentos por turma se as turmas estiverem definidas
+           $query = Ocorrencias::query();
+           
+           if ($turmas) {
+               $query->whereIn('turma', $turmas);
+           }
+           
+           $data = $query->selectRaw('DATE_FORMAT(data, "%Y-%m") as month, turma, COUNT(*) as total')
+                         ->groupBy('month', 'turma')
+                         ->get();
+           
+           return view('layouts.partials.graficosOco', compact('data'));
+       }
 }
